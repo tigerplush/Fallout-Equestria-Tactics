@@ -243,7 +243,7 @@ public class Character : MonoBehaviour
         Health -= damage;
         if(Health <= 0f)
         {
-            Debug.Log($"{name} died");
+            BattleManager.instance.Kill(this);
         }
     }
 

@@ -170,4 +170,19 @@ public class BattleManager : MonoBehaviour
         }
         return true;
     }
+
+    public void Kill(Character character)
+    {
+        if (currentCharacter == character)
+        {
+            NextRound();
+        }
+
+        if (characters.Contains(character))
+        {
+            characters.Remove(character);
+        }
+
+        Destroy(character.gameObject);
+    }
 }
