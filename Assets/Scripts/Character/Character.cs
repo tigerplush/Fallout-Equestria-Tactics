@@ -9,7 +9,7 @@ public enum Race
     Pegasus
 }
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
     [Header("Periphery")]
     public Race race;
