@@ -27,7 +27,6 @@ public class DamageText : MonoBehaviour
     public void Set(Vector3 position)
     {
         Vector3 textPosition = Camera.main.WorldToScreenPoint(position);
-        Debug.Log(textPosition);
         transform.position = textPosition;
         text.color = Color.white;
         text.text = "miss";
