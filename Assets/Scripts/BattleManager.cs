@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,6 @@ public class BattleManager : MonoBehaviour
     public static BattleManager instance = null;
 
     public PlayerCharacter playerCharacter;
-
     public List<Character> characters = new List<Character>();
     private Character currentCharacter = null;
 
@@ -48,6 +48,8 @@ public class BattleManager : MonoBehaviour
     public void NextRound()
     {
         DisableHitChance();
+
+        currentCharacter.EndRound();
 
         characters.Add(currentCharacter);
 
@@ -184,5 +186,13 @@ public class BattleManager : MonoBehaviour
         }
 
         Destroy(character.gameObject);
+    }
+
+    public void EndRound()
+    {
+        if(currentCharacter.IsPlayerCharacter())
+        {
+            NextRound();
+        }
     }
 }

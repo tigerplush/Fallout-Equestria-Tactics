@@ -69,15 +69,16 @@ public class Character : MonoBehaviour
     public virtual void StartRound()
     {
         hasTurn = true;
-        ActionPoints = startingActionPoints;
+        SetAP(startingActionPoints);
 
         BattleManager.instance.EnableHitChance();
+        DefaultUI.instance.SetUIInteractable(false);
     }
 
     public virtual void EndRound()
     {
         hasTurn = false;
-        BattleManager.instance.NextRound();
+        DefaultUI.instance.SetUIInteractable(false);
     }
 
     public void EnableHitChanceUI(Character other)
@@ -125,7 +126,7 @@ public class Character : MonoBehaviour
     {
         if(path.Count > 0 && ActionPoints > 0)
         {
-            ActionPoints--;
+            ConsumeAP(1);
             startingPoint = currentGoal;
             elapsedTime = 0;
             currentGoal = path[0];
@@ -209,7 +210,7 @@ public class Character : MonoBehaviour
                 other.Miss();
             }
 
-            ActionPoints -= defaultAttack.actionPointCost;
+            ConsumeAP(defaultAttack.actionPointCost);
         }
     }
 
@@ -294,5 +295,15 @@ public class Character : MonoBehaviour
         }
 
         return 1 - (visiblePoints / testedPoints);
+    }
+
+    protected virtual void ConsumeAP(int value)
+    {
+        ActionPoints -= value;
+    }
+
+    protected virtual void SetAP(int value)
+    {
+        ActionPoints = value;
     }
 }

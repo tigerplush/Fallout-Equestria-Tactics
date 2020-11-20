@@ -26,6 +26,7 @@ public class PlayerCharacter : Character
     {
         base.StartRound();
         canMove = true;
+        DefaultUI.instance.SetUIInteractable(true);
     }
 
     public override void EndRound()
@@ -63,11 +64,6 @@ public class PlayerCharacter : Character
                 }
             }
         }
-
-        if(ActionPoints == 0 && !isMoving && hasTurn)
-        {
-            EndRound();
-        }
     }
 
     protected override void FixedUpdate()
@@ -78,5 +74,17 @@ public class PlayerCharacter : Character
     public override bool IsPlayerCharacter()
     {
         return true;
+    }
+
+    protected override void ConsumeAP(int value)
+    {
+        base.ConsumeAP(value);
+        DefaultUI.instance.SetActionPoints(ActionPoints);
+    }
+
+    protected override void SetAP(int value)
+    {
+        base.SetAP(value);
+        DefaultUI.instance.SetActionPoints(value);
     }
 }
