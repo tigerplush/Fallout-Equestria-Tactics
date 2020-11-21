@@ -1,32 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
-[CreateAssetMenu(menuName = "PluggableAI/New State")]
-public class State : ScriptableObject
+public abstract class State : ScriptableObject
 {
-    public Action[] actions;
+    public Transition[] transitions;
 
-    public void UpdateState(StateController controller)
+    public abstract void OnStateEnter(IStateController controller);
+    public abstract void OnStateExit(IStateController controller);
+    public virtual void OnStateUpdate(IStateController controller)
     {
-        DoActions(controller);
-    }
-
-    public void DoActions(StateController controller)
-    {
-        for(int i = 0; i < actions.Length; i++)
+        foreach(Transition transition in transitions)
         {
-            actions[i].Act(controller);
+            if(transition.condition)
+            {
+                controller.Transition(transition.nextState);
+            }
         }
     }
 
-    public void DrawSceneGUI(SerializedProperty serializedProperty)
-    {
-        for(int i = 0; i < actions.Length; i++)
-        {
-            SerializedObject actionObject = new SerializedObject(serializedProperty.GetArrayElementAtIndex(i).objectReferenceValue);
-            actions[i].DrawSceneGUI(actionObject);
-        }
-    }
+    public abstract void OnRoundStart(IStateController controller);
+    public abstract void OnRoundEnd(IStateController controller);
 }

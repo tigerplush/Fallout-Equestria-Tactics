@@ -5,7 +5,7 @@ using UnityEditor;
 
 public abstract class Action : ScriptableObject
 {
-    public abstract void Act(StateController controller);
+    public abstract void Act();
 
     public virtual void DrawSceneGUI(SerializedObject serializedObject)
     {

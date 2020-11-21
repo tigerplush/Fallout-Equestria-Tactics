@@ -7,12 +7,12 @@ using UnityEditor;
 public class PatrolAction : Action
 {
     public Vector3[] waypoints;
-    public override void Act(StateController controller)
+    public override void Act()
     {
 
     }
 
-    private void Patrol(StateController controller)
+    private void Patrol()
     {
 
     }

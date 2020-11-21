@@ -13,11 +13,5 @@ public class NonPlayerCharacterEditor : Editor
     }
     private void OnSceneGUI()
     {
-        if(npc.currentState != null)
-        {
-            SerializedProperty currentState = serializedObject.FindProperty("currentState");
-            SerializedProperty actions = new SerializedObject(currentState.objectReferenceValue).FindProperty("actions");
-            npc.currentState.DrawSceneGUI(actions);
-        }
     }
 }
