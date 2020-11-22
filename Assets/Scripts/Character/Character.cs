@@ -11,6 +11,7 @@ public enum Race
 
 public abstract class Character : MonoBehaviour
 {
+    public Animator animator;
     [Header("Periphery")]
     public Race race;
     [Header("S.P.E.C.I.A.L. Attributes")]
@@ -73,12 +74,16 @@ public abstract class Character : MonoBehaviour
 
         BattleManager.instance.EnableHitChance();
         DefaultUI.instance.SetUIInteractable(false);
+
+        animator.SetBool("isWalking", isMoving);
     }
 
     public virtual void EndRound()
     {
         hasTurn = false;
         DefaultUI.instance.SetUIInteractable(false);
+
+        animator.SetBool("isWalking", false);
     }
 
     public void EnableHitChanceUI(Character other)
@@ -120,6 +125,8 @@ public abstract class Character : MonoBehaviour
         this.path.RemoveAt(0);
         SetNextGoal();
         BattleManager.instance.DisableHitChance();
+
+        animator.SetBool("isWalking", true);
     }
 
     private void SetNextGoal()
@@ -137,6 +144,7 @@ public abstract class Character : MonoBehaviour
         else
         {
             isMoving = false;
+            animator.SetBool("isWalking", false);
 
             BattleManager.instance.EnableHitChance();
         }
