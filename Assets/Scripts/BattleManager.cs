@@ -43,6 +43,8 @@ public class BattleManager : MonoBehaviour
     private void StartRound()
     {
         currentCharacter.StartRound();
+
+        CameraController.instance.Follow(currentCharacter.transform);
     }
 
     public void NextRound()
@@ -55,6 +57,7 @@ public class BattleManager : MonoBehaviour
 
         currentCharacter = characters[0];
         characters.RemoveAt(0);
+
         StartRound();
     }
 
