@@ -8,7 +8,7 @@ public class DefaultUI : MonoBehaviour
     public static DefaultUI instance = null;
 
     public Button endRoundButton;
-    public Slider actionPointsSlider;
+    public ActionPointsUI actionPointBar;
 
     private void Awake()
     {
@@ -29,12 +29,12 @@ public class DefaultUI : MonoBehaviour
 
     public void SetActionPoints(int actionPoints)
     {
-        actionPointsSlider.value = actionPoints;
+        actionPointBar.SetValue(actionPoints);
     }
 
     public void SetUIInteractable(bool interactable)
     {
         endRoundButton.interactable = interactable;
-        actionPointsSlider.interactable = interactable;
+        actionPointBar.SetInteractable(interactable);
     }
 }

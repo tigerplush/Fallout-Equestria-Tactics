@@ -73,7 +73,6 @@ public abstract class Character : MonoBehaviour
         SetAP(startingActionPoints);
 
         BattleManager.instance.EnableHitChance();
-        DefaultUI.instance.SetUIInteractable(false);
 
         animator.SetBool("isWalking", isMoving);
     }
