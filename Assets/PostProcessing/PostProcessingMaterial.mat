@@ -80,7 +80,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Outline: 0.0082
-    - _PixelSample: 300
+    - _PixelSample: 500
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Saturate: 1

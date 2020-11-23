@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WalkableSurface : MonoBehaviour, IPointerClickHandler
+public class WalkableSurface : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public bool walkable = true;
     public bool flyable = true;
@@ -14,5 +14,15 @@ public class WalkableSurface : MonoBehaviour, IPointerClickHandler
     {
         Vector3 worldPosition = eventData.pointerCurrentRaycast.worldPosition;
         BattleManager.instance.ClickedSurface(worldPosition);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        HexPointer.instance.Enable();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HexPointer.instance.Disable();
     }
 }
