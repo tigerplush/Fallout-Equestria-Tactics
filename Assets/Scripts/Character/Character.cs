@@ -120,13 +120,16 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
 
     public void SetPath(CubeCoordinates[] path)
     {
-        this.path = new List<CubeCoordinates>(path);
-        currentGoal = this.path[0];
-        this.path.RemoveAt(0);
-        SetNextGoal();
-        BattleManager.instance.DisableHitChance();
+        if(path != null && path.Length > 0)
+        {
+            this.path = new List<CubeCoordinates>(path);
+            currentGoal = this.path[0];
+            this.path.RemoveAt(0);
+            SetNextGoal();
+            BattleManager.instance.DisableHitChance();
 
-        animator.SetBool("isWalking", true);
+            animator.SetBool("isWalking", true);
+        }
     }
 
     private void SetNextGoal()

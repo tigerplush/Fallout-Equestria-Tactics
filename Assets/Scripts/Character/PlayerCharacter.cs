@@ -64,7 +64,7 @@ public class PlayerCharacter : Character
 
     public override void SetTarget(CubeCoordinates target)
     {
-        if(canMove && Hex.Distance(CubeCoordinates, target) <= ActionPoints)
+        if(canMove && Hex.Distance(CubeCoordinates, target) <= ActionPoints && target != CubeCoordinates)
         {
             base.SetTarget(target);
         }

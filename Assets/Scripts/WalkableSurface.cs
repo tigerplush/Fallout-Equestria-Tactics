@@ -5,7 +5,9 @@ using UnityEngine.EventSystems;
 
 public class WalkableSurface : MonoBehaviour, IPointerClickHandler
 {
-    public int cost = 1;
+    public bool walkable = true;
+    public bool flyable = true;
+    public float cost = 1f;
     public int maximumHeight = 2;
 
     public void OnPointerClick(PointerEventData eventData)

@@ -30,6 +30,7 @@ public class AStar : MonoBehaviour
         cameFrom.Add(start, null);
         costSoFar.Add(start, 0f);
 
+        bool targetCanBeReached = false;
         for (; frontier.Count > 0 ; )
         {
             frontier.Sort();
@@ -38,13 +39,19 @@ public class AStar : MonoBehaviour
 
             if (current.coordinates == target)
             {
+                targetCanBeReached = true;
                 break;
             }
 
             CubeCoordinates[] neighbors = current.coordinates.Neighbors();
             foreach (CubeCoordinates next in neighbors)
             {
-                float newCost = costSoFar[current.coordinates] + 1f;
+                float nextCost;
+                if (!TileCost(next, out nextCost))
+                {
+                    continue;
+                }
+                float newCost = costSoFar[current.coordinates] + nextCost;
                 if (!costSoFar.ContainsKey(next) || newCost < costSoFar[next])
                 {
                     costSoFar[next] = newCost;
@@ -56,13 +63,48 @@ public class AStar : MonoBehaviour
         }
 
         List<CubeCoordinates> path = new List<CubeCoordinates>();
-        CubeCoordinates last = target;
-        for(; last != null; )
+        if (targetCanBeReached)
         {
-            path.Add(last);
-            last = cameFrom[last];
+            CubeCoordinates last = target;
+            for (; last != null;)
+            {
+                path.Add(last);
+                last = cameFrom[last];
+            }
+            path.Reverse();
         }
-        path.Reverse();
         return path.ToArray();
+    }
+
+    public static bool TileCost(CubeCoordinates tile, out float cost)
+    {
+        // Take tile in world coordinates
+        // plus vector up
+        // raycast down
+        // return walkingCost
+        Vector3 tilePosition = Hex.ToWorld(tile) + Vector3.up;
+        Ray ray = new Ray(tilePosition, Vector3.down);
+        RaycastHit hitInfo;
+        if(Physics.Raycast(ray, out hitInfo))
+        {
+            WalkableSurface walkableSurface = hitInfo.collider.GetComponent<WalkableSurface>();
+            if(walkableSurface != null)
+            {
+                cost = walkableSurface.cost;
+                return walkableSurface.walkable;
+            }
+        }
+        cost = Mathf.Infinity;
+        return false;
+    }
+
+    public static bool IsUsable(CubeCoordinates tile)
+    {
+        // Take tile in world coordinates
+        // plus Vector up
+        // raycast down
+        // if raycast not walkable surface => false
+        // if raycast walkable surface => return isWalkable
+        return true;
     }
 }
