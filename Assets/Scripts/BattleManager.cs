@@ -198,4 +198,12 @@ public class BattleManager : MonoBehaviour
             NextRound();
         }
     }
+
+    public void ClickedCharacter(Character character)
+    {
+        if(currentCharacter != character && currentCharacter.IsPlayerCharacter())
+        {
+            currentCharacter.Attack(character);
+        }
+    }
 }

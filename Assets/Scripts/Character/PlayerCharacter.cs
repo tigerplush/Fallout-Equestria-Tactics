@@ -45,15 +45,8 @@ public class PlayerCharacter : Character
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, BattleManager.instance.attackableLayers))
-                {
-                    Character other = hit.collider.GetComponent<Character>();
-                    if (other != null && other != this)
-                    {
-                        Attack(other);
-                    }
-                }
-                else if (Physics.Raycast(ray, out hit, Mathf.Infinity, BattleManager.instance.walkableLayers))
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, BattleManager.instance.walkableLayers))
                 {
                     CubeCoordinates target = Hex.FromWorld(hit.point);
                     if (BattleManager.instance.IsEmpty(target) && Hex.Distance(CubeCoordinates, target) <= ActionPoints)

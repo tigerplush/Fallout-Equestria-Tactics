@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum Race
 {
@@ -9,7 +10,7 @@ public enum Race
     Pegasus
 }
 
-public abstract class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour, IPointerClickHandler
 {
     public Animator animator;
     [Header("Periphery")]
@@ -312,5 +313,10 @@ public abstract class Character : MonoBehaviour
     protected virtual void SetAP(int value)
     {
         ActionPoints = value;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        BattleManager.instance.ClickedCharacter(this);
     }
 }
