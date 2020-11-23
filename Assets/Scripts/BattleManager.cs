@@ -206,4 +206,16 @@ public class BattleManager : MonoBehaviour
             currentCharacter.Attack(character);
         }
     }
+
+    public void ClickedSurface(Vector3 point)
+    {
+        if(currentCharacter.IsPlayerCharacter())
+        {
+            CubeCoordinates target = Hex.FromWorld(point);
+            if (IsEmpty(target))
+            {
+                currentCharacter.SetTarget(target);
+            }
+        }
+    }
 }

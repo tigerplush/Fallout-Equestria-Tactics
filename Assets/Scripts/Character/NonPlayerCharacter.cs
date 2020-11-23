@@ -57,8 +57,7 @@ public class NonPlayerCharacter : Character, IStateController
             CubeCoordinates target = Hex.FromWorld(patrolData.nextPosition);
             if (BattleManager.instance.IsEmpty(target))
             {
-                CubeCoordinates[] path = AStar.FindWay(CubeCoordinates, target);
-                SetPath(path);
+                SetTarget(target);
             }
         }
     }

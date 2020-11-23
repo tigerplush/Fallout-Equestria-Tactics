@@ -38,25 +38,6 @@ public class PlayerCharacter : Character
     protected override void Update()
     {
         base.Update();
-
-        if(canMove)
-        {
-            if (Input.GetMouseButtonUp(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity, BattleManager.instance.walkableLayers))
-                {
-                    CubeCoordinates target = Hex.FromWorld(hit.point);
-                    if (BattleManager.instance.IsEmpty(target) && Hex.Distance(CubeCoordinates, target) <= ActionPoints)
-                    {
-                        CubeCoordinates[] path = AStar.FindWay(CubeCoordinates, target);
-                        SetPath(path);
-                    }
-                }
-            }
-        }
     }
 
     protected override void FixedUpdate()
@@ -79,5 +60,13 @@ public class PlayerCharacter : Character
     {
         base.SetAP(value);
         DefaultUI.instance.SetActionPoints(value);
+    }
+
+    public override void SetTarget(CubeCoordinates target)
+    {
+        if(canMove && Hex.Distance(CubeCoordinates, target) <= ActionPoints)
+        {
+            base.SetTarget(target);
+        }
     }
 }

@@ -319,4 +319,14 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     {
         BattleManager.instance.ClickedCharacter(this);
     }
+
+    /// <summary>
+    /// Sets a path to target without checking if target can be reached
+    /// </summary>
+    /// <param name="target"></param>
+    public virtual void SetTarget(CubeCoordinates target)
+    {
+        CubeCoordinates[] path = AStar.FindWay(CubeCoordinates, target);
+        SetPath(path);
+    }
 }
