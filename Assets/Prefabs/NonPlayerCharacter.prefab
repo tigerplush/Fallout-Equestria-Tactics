@@ -8,10 +8,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4924010278943949530}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 469b18fd8d1927c4cbd4ec5bfdd0919d, type: 3}
 --- !u!1 &7926822872855292566
@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7926822872855292571}
   - component: {fileID: 7886380598737536986}
-  - component: {fileID: 4277486526990830271}
+  - component: {fileID: 5997109228805081942}
   m_Layer: 9
   m_Name: NonPlayerCharacter
   m_TagString: Untagged
@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5283254556404298951}
+  characterCollider: {fileID: 5997109228805081942}
   race: 0
   Strength: 5
   Perception: 5
@@ -83,8 +84,8 @@ MonoBehaviour:
   startingState: {fileID: 11400000, guid: 430293a730549364ab65a782996412d7, type: 2}
   currentState: {fileID: 0}
   aiActive: 0
---- !u!64 &4277486526990830271
-MeshCollider:
+--- !u!65 &5997109228805081942
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -93,10 +94,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1613867034650085639, guid: be81b8f7264b9dc499d2e9cad0a69ea7, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.54, y: 1.2, z: 0.85}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &7926822873244316104
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,11 +622,21 @@ PrefabInstance:
     - target: {fileID: 1151388028547126963, guid: 469b18fd8d1927c4cbd4ec5bfdd0919d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -0.043
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 469b18fd8d1927c4cbd4ec5bfdd0919d,
         type: 3}
       propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 469b18fd8d1927c4cbd4ec5bfdd0919d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.373
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: 469b18fd8d1927c4cbd4ec5bfdd0919d,
+        type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

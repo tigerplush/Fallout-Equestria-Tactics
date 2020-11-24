@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8460481799582204998}
   - component: {fileID: 8460481799582205002}
-  - component: {fileID: 577478665210856857}
+  - component: {fileID: 2025737150572680403}
   m_Layer: 9
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7582472338191471562}
+  characterCollider: {fileID: 2025737150572680403}
   race: 0
   Strength: 5
   Perception: 5
@@ -66,8 +67,8 @@ MonoBehaviour:
   hitChanceCanvas: {fileID: 8460481801486990043}
   speed: 1
   canMove: 0
---- !u!64 &577478665210856857
-MeshCollider:
+--- !u!65 &2025737150572680403
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -76,10 +77,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -1613867034650085639, guid: be81b8f7264b9dc499d2e9cad0a69ea7, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.53, y: 1.2, z: 0.88}
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &8460481800241766165
 GameObject:
   m_ObjectHideFlags: 0

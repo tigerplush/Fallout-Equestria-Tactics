@@ -137,7 +137,8 @@ public class BattleManager : MonoBehaviour
 
             Vector3 position = playerCharacter.transform.position;
 
-            Collider collider = character.GetComponent<Collider>();
+            //Collider collider = character.GetComponent<Collider>();
+            Collider collider = character.characterCollider;
             Vector3 min = collider.bounds.min;
             Vector3 max = collider.bounds.max;
 

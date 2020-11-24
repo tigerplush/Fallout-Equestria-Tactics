@@ -13,6 +13,7 @@ public enum Race
 public abstract class Character : MonoBehaviour, IPointerClickHandler
 {
     public Animator animator;
+    public Collider characterCollider;
     [Header("Periphery")]
     public Race race;
     [Header("S.P.E.C.I.A.L. Attributes")]
@@ -274,7 +275,8 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     {
         Vector3 position = from.transform.position;
 
-        Collider collider = to.GetComponent<Collider>();
+        //Collider collider = to.GetComponent<Collider>();
+        Collider collider = to.characterCollider;
         Vector3 min = collider.bounds.min;
         Vector3 max = collider.bounds.max;
 
