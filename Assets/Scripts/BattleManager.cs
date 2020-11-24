@@ -7,6 +7,13 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager instance = null;
 
+    public Material hexGridMaterial;
+    public float fadeInTime;
+    public AnimationCurve fadeInCurve;
+    public float fadeOutTime;
+    public AnimationCurve fadeOutCurve;
+    private float fadeOutStart;
+
     public PlayerCharacter playerCharacter;
     public List<Character> characters = new List<Character>();
     private Character currentCharacter = null;
@@ -35,16 +42,55 @@ public class BattleManager : MonoBehaviour
 
     private void Start()
     {
+        hexGridMaterial.SetFloat("_RenderDistance", 0f);
         FindWalkableSurfaces();
         currentCharacter = playerCharacter;
         StartRound();
     }
 
+    private void Update()
+    {
+        if (currentCharacter.IsPlayerCharacter())
+        {
+            hexGridMaterial.SetFloat("_RenderDistance", (float)currentCharacter.Perception);
+            Vector3 position = currentCharacter.transform.position;
+            Vector4 center = new Vector4(position.x, position.y, position.z);
+            hexGridMaterial.SetVector("_GridCenter", center);
+        }
+    }
+
     private void StartRound()
     {
         currentCharacter.StartRound();
+        if(currentCharacter.IsPlayerCharacter())
+        {
+            Vector3 position = currentCharacter.transform.position;
+            Vector4 center = new Vector4(position.x, position.y, position.z);
+            hexGridMaterial.SetVector("_GridCenter", center);
+
+            StartCoroutine(GridFadeIn());
+        }
 
         CameraController.instance.Follow(currentCharacter.transform);
+    }
+
+    private IEnumerator GridFadeIn()
+    {
+        for (float f = 0f; f <= fadeInTime; f+= Time.deltaTime)
+        {
+            hexGridMaterial.SetFloat("_RenderDistance", fadeInCurve.Evaluate(f / fadeInTime) * (float)currentCharacter.Perception);
+            yield return null;
+        }
+    }
+
+    private IEnumerator GridFadeOut()
+    {
+        fadeOutStart = hexGridMaterial.GetFloat("_RenderDistance");
+        for (float f = 0f; f <= fadeOutTime; f += Time.deltaTime)
+        {
+            hexGridMaterial.SetFloat("_RenderDistance", fadeOutCurve.Evaluate(f / fadeOutTime) * fadeOutStart);
+            yield return null;
+        }
     }
 
     public void NextRound()
@@ -52,6 +98,7 @@ public class BattleManager : MonoBehaviour
         DisableHitChance();
 
         currentCharacter.EndRound();
+        hexGridMaterial.SetFloat("_RenderDistance", 0f);
 
         characters.Add(currentCharacter);
 
