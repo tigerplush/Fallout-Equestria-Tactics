@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
     public void Equip(Item item)
     {
         item.Equip(this);
+        UIManager.instance.inventoryUI.UpdateUI(this);
     }
 
     public void Equip(Weapon weapon)

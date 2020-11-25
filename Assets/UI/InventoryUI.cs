@@ -45,6 +45,15 @@ public class InventoryUI : MonoBehaviour
             itemUiPool[i].gameObject.SetActive(i < numberOfItems);
             itemUiPool[i].Set(inventory.inventory[i]);
         }
+
+        foreach(ArmorSlotUI slotUi in armorSlots)
+        {
+            ArmorSlot armorSlot = inventory.armorSlots.Find(slot => slot.bodyPart == slotUi.acceptedBodypart);
+            if(armorSlot != null)
+            {
+                slotUi.Set(armorSlot.armor);
+            }
+        }
     }
 
     public void Hover(Item item)

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ArmorSlotUI : MonoBehaviour, ISlot
 {
+    public TextMeshProUGUI text;
     public Button button;
     public BodyPart acceptedBodypart;
 
@@ -36,5 +38,14 @@ public class ArmorSlotUI : MonoBehaviour, ISlot
     public bool Accept(Item item)
     {
         return TestAcceptability(item);
+    }
+
+    public void Set(Armor armor)
+    {
+        text.text = "";
+        if(armor != null)
+        {
+            text.text = armor.name;
+        }
     }
 }

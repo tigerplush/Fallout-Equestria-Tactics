@@ -5,11 +5,21 @@ using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour, InputMaster.IPlayerActions
 {
+    public static UIManager instance = null;
     private InputMaster controls;
     public InventoryUI inventoryUI;
 
     private void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         controls = new InputMaster();
         controls.Player.SetCallbacks(this);
     }
