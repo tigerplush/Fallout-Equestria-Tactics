@@ -266,4 +266,17 @@ public class BattleManager : MonoBehaviour
             }
         }
     }
+
+    public bool IsPlayerTurn()
+    {
+        return currentCharacter.IsPlayerCharacter();
+    }
+
+    public Character CurrentCharacter
+    {
+        get
+        {
+            return currentCharacter;
+        }
+    }
 }

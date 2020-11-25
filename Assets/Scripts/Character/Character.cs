@@ -37,6 +37,7 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     public int Guns;
 
     [Header("Items")]
+    public Inventory inventory;
     public Weapon currentWeapon;
     public Weapon defaultWeapon;
 

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Experimental.Rendering.Universal;
+using UnityEngine.InputSystem;
 
-public class HexPointer : MonoBehaviour
+public class HexPointer : MonoBehaviour, InputMaster.IPointerActions
 {
     public static HexPointer instance = null;
 
@@ -12,6 +13,8 @@ public class HexPointer : MonoBehaviour
     public LayerMask pointableLayers;
 
     private bool pointerEnabled = false;
+
+    private InputMaster controls;
 
     private void Awake()
     {
@@ -23,19 +26,28 @@ public class HexPointer : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        controls = new InputMaster();
+        controls.Pointer.SetCallbacks(this);
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        controls.Enable();
     }
 
-    private void Update()
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    public void OnMousePosition(InputAction.CallbackContext callbackContext)
     {
         if(pointerEnabled)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(callbackContext.ReadValue<Vector2>());
             RaycastHit hitInfo;
-            if(Physics.Raycast(ray, out hitInfo, Mathf.Infinity, pointableLayers))
+            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity, pointableLayers))
             {
                 CubeCoordinates tileCoordinates = Hex.FromWorld(hitInfo.point);
                 Vector3 position = Hex.ToWorld(tileCoordinates);

@@ -33,13 +33,10 @@ public class Attack
 }
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Items/Weapons/New Weapon")]
-public class Weapon : ScriptableObject
+public class Weapon : Item
 {
     public SkillType skillType;
     public DamageType damageType;
-
-    public float weight;
-    public float value;
 
     public float minDamage;
     public float maxDamage;
