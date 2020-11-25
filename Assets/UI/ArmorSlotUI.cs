@@ -10,6 +10,13 @@ public class ArmorSlotUI : MonoBehaviour, ISlot
     public Button button;
     public BodyPart acceptedBodypart;
 
+    private InventoryUI inventoryUI;
+
+    public void SetUp(InventoryUI inventoryUI)
+    {
+        this.inventoryUI = inventoryUI;
+    }
+
     public bool CanAccept(Item item)
     {
         bool acceptability = TestAcceptability(item);
@@ -47,5 +54,10 @@ public class ArmorSlotUI : MonoBehaviour, ISlot
         {
             text.text = armor.name;
         }
+    }
+
+    public void Unequip()
+    {
+        inventoryUI.Unequip(acceptedBodypart);
     }
 }

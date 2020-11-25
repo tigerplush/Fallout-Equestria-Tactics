@@ -75,5 +75,15 @@ public class Inventory : MonoBehaviour
                 armorSlot.armor = null;
             }
         }
+        UIManager.instance.inventoryUI.UpdateUI(this);
+    }
+
+    public void Unequip(BodyPart part)
+    {
+        if(armorSlots.Exists(slot => slot.bodyPart == part && slot.armor != null))
+        {
+            ArmorSlot armorSlot = armorSlots.Find(slot => slot.bodyPart == part);
+            Unequip(armorSlot.armor);
+        }
     }
 }

@@ -18,6 +18,14 @@ public class InventoryUI : MonoBehaviour
     private GameObject draggableIcon;
     private Inventory inventory;
 
+    private void Awake()
+    {
+        foreach (ArmorSlotUI slot in armorSlots)
+        {
+            slot.SetUp(this);
+        }
+    }
+
     private void OnEnable()
     {
         Character currentCharacter = BattleManager.instance.CurrentCharacter;
@@ -99,7 +107,6 @@ public class InventoryUI : MonoBehaviour
         raycaster.Raycast(eventData, results);
         if(results.Count > 0)
         {
-            Debug.Log(results[0].gameObject);
             ISlot slot = results[0].gameObject.GetComponent<ISlot>();
             if(slot != null)
             {
@@ -126,5 +133,10 @@ public class InventoryUI : MonoBehaviour
         {
             rt.position = globalMousePos;
         }
+    }
+
+    public void Unequip(BodyPart part)
+    {
+        inventory.Unequip(part);
     }
 }
