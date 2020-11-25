@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4530934a4d668534297ca8e6e4f7095d, type: 3}
-  m_Name: TestArmor
+  m_Name: Stable Barding
   m_EditorClassIdentifier: 
-  equippedAt: 0
+  weight: 0
+  value: 0
+  equippedAt: 040000000800000010000000
   armorClass: 0
   damageThreshold: 0
   damageResistance: 0

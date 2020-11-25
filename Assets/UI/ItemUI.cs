@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class ItemUI : MonoBehaviour, IPointerEnterHandler
+public class ItemUI : MonoBehaviour, IPointerEnterHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public TextMeshProUGUI text;
     private InventoryUI inventoryUI;
@@ -27,5 +27,20 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler
         {
             inventoryUI.Hover(item);
         }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        inventoryUI.BeginDrag(item, eventData);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        inventoryUI.Drag(eventData);
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        inventoryUI.EndDrag(item, eventData);
     }
 }

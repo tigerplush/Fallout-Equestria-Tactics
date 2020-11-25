@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Flags]
-public enum BodyParts
+public enum BodyPart
 {
     None = 0,
     Head = 1,
@@ -18,7 +17,7 @@ public enum BodyParts
 [CreateAssetMenu(menuName = "Items/Armor")]
 public class Armor : Item
 {
-    public BodyParts equippedAt;
+    public List<BodyPart> equippedAt;
 
     //armor class makes it harder to hit
     public float armorClass;

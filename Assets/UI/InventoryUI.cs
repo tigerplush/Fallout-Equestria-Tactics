@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
+    public GraphicRaycaster raycaster;
     public RectTransform content;
     public GameObject itemUiPrefab;
 
+    public Sprite tempSprite;
+
     private List<ItemUI> itemUiPool = new List<ItemUI>();
+    private GameObject draggableIcon;
 
     private void OnEnable()
     {
@@ -37,5 +43,61 @@ public class InventoryUI : MonoBehaviour
     public void Hover(Item item)
     {
         Debug.Log(item.name);
+    }
+
+    public void BeginDrag(Item item, PointerEventData eventData)
+    {
+
+        //disable all slots that can't hold the item
+
+        draggableIcon = new GameObject("icon");
+        draggableIcon.transform.SetParent(transform, false);
+        draggableIcon.transform.SetAsLastSibling();
+
+        Image image = draggableIcon.AddComponent<Image>();
+        image.sprite = tempSprite;
+        image.SetNativeSize();
+
+        MoveIcon(eventData);
+    }
+
+    public void Drag(PointerEventData eventData)
+    {
+        if(draggableIcon != null)
+        {
+            MoveIcon(eventData);
+        }
+    }
+
+    public void EndDrag(Item item, PointerEventData eventData)
+    {
+        if(draggableIcon != null)
+        {
+            Destroy(draggableIcon);
+        }
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        raycaster.Raycast(eventData, results);
+        if(results.Count > 0)
+        {
+            Debug.Log(results[0].gameObject);
+            ISlot slot = results[0].gameObject.GetComponent<ISlot>();
+            if(slot != null)
+            {
+                slot.Accept(item);
+            }
+        }
+
+        //make all slots available again
+    }
+
+    private void MoveIcon(PointerEventData eventData)
+    {
+        var rt = draggableIcon.transform as RectTransform;
+        Vector3 globalMousePos;
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(transform as RectTransform, eventData.position, eventData.pressEventCamera, out globalMousePos))
+        {
+            rt.position = globalMousePos;
+        }
     }
 }
