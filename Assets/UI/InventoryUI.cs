@@ -12,6 +12,8 @@ public class InventoryUI : MonoBehaviour
 
     public Sprite tempSprite;
 
+    public ArmorSlotUI[] armorSlots;
+
     private List<ItemUI> itemUiPool = new List<ItemUI>();
     private GameObject draggableIcon;
 
@@ -49,6 +51,10 @@ public class InventoryUI : MonoBehaviour
     {
 
         //disable all slots that can't hold the item
+        foreach(ArmorSlotUI slot in armorSlots)
+        {
+            slot.CanAccept(item);
+        }
 
         draggableIcon = new GameObject("icon");
         draggableIcon.transform.SetParent(transform, false);
@@ -89,6 +95,10 @@ public class InventoryUI : MonoBehaviour
         }
 
         //make all slots available again
+        foreach(ArmorSlotUI slot in armorSlots)
+        {
+            slot.Reset();
+        }
     }
 
     private void MoveIcon(PointerEventData eventData)
