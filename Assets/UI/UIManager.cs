@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class UIManager : MonoBehaviour, InputMaster.IPlayerActions
 {
     private InputMaster controls;
-    public GameObject inventoryUI;
+    public InventoryUI inventoryUI;
 
     private void Awake()
     {
@@ -40,6 +40,6 @@ public class UIManager : MonoBehaviour, InputMaster.IPlayerActions
 
     public void ToggleInventoryUI()
     {
-        inventoryUI.SetActive(!inventoryUI.activeSelf);
+        inventoryUI.gameObject.SetActive(!inventoryUI.gameObject.activeSelf);
     }
 }

@@ -16,13 +16,18 @@ public class InventoryUI : MonoBehaviour
 
     private List<ItemUI> itemUiPool = new List<ItemUI>();
     private GameObject draggableIcon;
+    private Inventory inventory;
 
     private void OnEnable()
     {
         Character currentCharacter = BattleManager.instance.CurrentCharacter;
+        
+        UpdateUI(currentCharacter.inventory);
+    }
 
-        Inventory inventory = currentCharacter.inventory;
-
+    public void UpdateUI(Inventory inventory)
+    {
+        this.inventory = inventory;
         int numberOfItems = inventory.inventory.Count;
 
         //Create missing number of prefabs
@@ -35,7 +40,7 @@ public class InventoryUI : MonoBehaviour
         }
 
         //enable only as much itemUis as items exist
-        for(int i = 0; i < itemUiPool.Count; i++)
+        for (int i = 0; i < itemUiPool.Count; i++)
         {
             itemUiPool[i].gameObject.SetActive(i < numberOfItems);
             itemUiPool[i].Set(inventory.inventory[i]);
@@ -44,7 +49,6 @@ public class InventoryUI : MonoBehaviour
 
     public void Hover(Item item)
     {
-        Debug.Log(item.name);
     }
 
     public void BeginDrag(Item item, PointerEventData eventData)
@@ -90,7 +94,11 @@ public class InventoryUI : MonoBehaviour
             ISlot slot = results[0].gameObject.GetComponent<ISlot>();
             if(slot != null)
             {
-                slot.Accept(item);
+                if(slot.Accept(item) && inventory != null)
+                {
+                    inventory.Equip(item);
+                }
+
             }
         }
 

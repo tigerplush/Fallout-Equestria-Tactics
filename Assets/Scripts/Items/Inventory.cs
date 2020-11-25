@@ -21,6 +21,11 @@ public class Inventory : MonoBehaviour
         inventory.Remove(item);
     }
 
+    public void Equip(Item item)
+    {
+        item.Equip(this);
+    }
+
     public void Equip(Weapon weapon)
     {
 

@@ -30,15 +30,11 @@ public class ArmorSlotUI : MonoBehaviour, ISlot
 
     public void Reset()
     {
-        Debug.Log("reset");
         button.interactable = true;
     }
 
-    public void Accept(Item item)
+    public bool Accept(Item item)
     {
-        if(TestAcceptability(item))
-        {
-            //equip, lel
-        }
+        return TestAcceptability(item);
     }
 }

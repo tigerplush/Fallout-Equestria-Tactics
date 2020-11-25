@@ -45,4 +45,9 @@ public class Weapon : Item
 
     public int handsRequired = 1;
     public int strengthRequired = 1;
+
+    public override void Equip(Inventory inventory)
+    {
+        inventory.Equip(this);
+    }
 }

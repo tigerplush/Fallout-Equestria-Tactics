@@ -5,5 +5,5 @@ using UnityEngine;
 public interface ISlot
 {
     bool CanAccept(Item item);
-    void Accept(Item item);
+    bool Accept(Item item);
 }

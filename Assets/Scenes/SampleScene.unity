@@ -5288,7 +5288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5b2a5bfe279ab5438b8a2418dbdd0c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 2028743961}
+  inventoryUI: {fileID: 2028743965}
 --- !u!1 &1068362307
 GameObject:
   m_ObjectHideFlags: 0
@@ -10516,7 +10516,7 @@ PrefabInstance:
     - target: {fileID: 7198634805551785123, guid: bec0e019ea5dc714ca2af740333450f2,
         type: 3}
       propertyPath: inventory.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7198634805551785123, guid: bec0e019ea5dc714ca2af740333450f2,
         type: 3}
@@ -10595,7 +10595,12 @@ PrefabInstance:
         type: 3}
       propertyPath: armorSlots.Array.data[2].armor
       value: 
-      objectReference: {fileID: 11400000, guid: 3cb29b474f5aeb349a13717c504a80e1,
+      objectReference: {fileID: 0}
+    - target: {fileID: 7198634805551785123, guid: bec0e019ea5dc714ca2af740333450f2,
+        type: 3}
+      propertyPath: inventory.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: d33f7cc6534b4684498ba9e5c4cfb509,
         type: 2}
     - target: {fileID: 8460481799582204998, guid: bec0e019ea5dc714ca2af740333450f2,
         type: 3}

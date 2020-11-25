@@ -27,4 +27,9 @@ public class Armor : Item
 
     //damageDr = BasicDamage * (100 - min(DR, 85))/100
     public float damageResistance;
+
+    public override void Equip(Inventory inventory)
+    {
+        inventory.Equip(this);
+    }
 }
