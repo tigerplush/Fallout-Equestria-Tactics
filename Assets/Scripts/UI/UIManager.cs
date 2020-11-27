@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class UIManager : MonoBehaviour, InputMaster.IPlayerActions
+public class UIManager : MonoBehaviour, InputMaster.IUIActions
 {
     public static UIManager instance = null;
     private InputMaster controls;
@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour, InputMaster.IPlayerActions
         }
 
         controls = new InputMaster();
-        controls.Player.SetCallbacks(this);
+        controls.UI.SetCallbacks(this);
     }
 
     private void OnEnable()
@@ -32,12 +32,6 @@ public class UIManager : MonoBehaviour, InputMaster.IPlayerActions
     private void OnDisable()
     {
         controls.Disable();
-    }
-
-    public void OnMoveCamera(InputAction.CallbackContext callbackContext)
-    {
-        Vector2 delta = callbackContext.ReadValue<Vector2>();
-        Debug.Log(delta);
     }
 
     public void OnToggleInventory(InputAction.CallbackContext callbackContext)

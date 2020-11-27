@@ -15,7 +15,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
     ""name"": ""InputMaster"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""UI"",
             ""id"": ""c5eb1592-7661-438b-a91d-df53729bf85c"",
             ""actions"": [
                 {
@@ -25,14 +25,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""MoveCamera"",
-                    ""type"": ""Button"",
-                    ""id"": ""4efe1784-22fc-4cec-acf5-bbf4121838ce"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -46,61 +38,6 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""action"": ""ToggleInventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""58ce2417-da11-4c65-90e1-13beac8151b9"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
-                    ""action"": ""MoveCamera"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""67276ee0-45a2-47c5-ab9f-f26b2548d1ca"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""MoveCamera"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""6dd173c4-43cc-4816-9279-402b014ff298"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""MoveCamera"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""bf8495d8-5b22-4770-89c5-d5e02335cba4"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""MoveCamera"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""c8200526-7ed9-41a6-aa81-552f4ab5f3c4"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""MoveCamera"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -130,6 +67,96 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Camera"",
+            ""id"": ""7ec75b12-5409-4cf9-a13a-62bd8d3c85e4"",
+            ""actions"": [
+                {
+                    ""name"": ""MoveCamera"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f4babd8d-f1f4-4df9-ac55-0144da093820"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Center"",
+                    ""type"": ""Button"",
+                    ""id"": ""06ad4b47-9c7d-4d60-ac76-425c2ceecc09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""fcb11bcf-6935-4326-9b7a-adc9f80635b6"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": ""Normalize(min=-1,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""MoveCamera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b988c51f-7ddb-4004-8ae4-a945dd90a1e7"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MoveCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""aef5d54a-1a68-4ca5-8412-6258dc5e622c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MoveCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""59ad1ead-bfed-446b-a054-feecf988bdd9"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MoveCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a6420b8c-8eec-476e-a202-6639a01b8635"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""MoveCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d937908e-48bb-4614-b972-7ebcb8ecd9d7"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Center"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -151,13 +178,16 @@ public class @InputMaster : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_ToggleInventory = m_Player.FindAction("ToggleInventory", throwIfNotFound: true);
-        m_Player_MoveCamera = m_Player.FindAction("MoveCamera", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_ToggleInventory = m_UI.FindAction("ToggleInventory", throwIfNotFound: true);
         // Pointer
         m_Pointer = asset.FindActionMap("Pointer", throwIfNotFound: true);
         m_Pointer_MousePosition = m_Pointer.FindAction("MousePosition", throwIfNotFound: true);
+        // Camera
+        m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
+        m_Camera_MoveCamera = m_Camera.FindAction("MoveCamera", throwIfNotFound: true);
+        m_Camera_Center = m_Camera.FindAction("Center", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,46 +234,38 @@ public class @InputMaster : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_ToggleInventory;
-    private readonly InputAction m_Player_MoveCamera;
-    public struct PlayerActions
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_ToggleInventory;
+    public struct UIActions
     {
         private @InputMaster m_Wrapper;
-        public PlayerActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ToggleInventory => m_Wrapper.m_Player_ToggleInventory;
-        public InputAction @MoveCamera => m_Wrapper.m_Player_MoveCamera;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public UIActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ToggleInventory => m_Wrapper.m_UI_ToggleInventory;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @ToggleInventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleInventory;
-                @ToggleInventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleInventory;
-                @ToggleInventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnToggleInventory;
-                @MoveCamera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveCamera;
-                @MoveCamera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveCamera;
-                @MoveCamera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveCamera;
+                @ToggleInventory.started -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleInventory;
+                @ToggleInventory.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleInventory;
+                @ToggleInventory.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnToggleInventory;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @ToggleInventory.started += instance.OnToggleInventory;
                 @ToggleInventory.performed += instance.OnToggleInventory;
                 @ToggleInventory.canceled += instance.OnToggleInventory;
-                @MoveCamera.started += instance.OnMoveCamera;
-                @MoveCamera.performed += instance.OnMoveCamera;
-                @MoveCamera.canceled += instance.OnMoveCamera;
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public UIActions @UI => new UIActions(this);
 
     // Pointer
     private readonly InputActionMap m_Pointer;
@@ -277,6 +299,47 @@ public class @InputMaster : IInputActionCollection, IDisposable
         }
     }
     public PointerActions @Pointer => new PointerActions(this);
+
+    // Camera
+    private readonly InputActionMap m_Camera;
+    private ICameraActions m_CameraActionsCallbackInterface;
+    private readonly InputAction m_Camera_MoveCamera;
+    private readonly InputAction m_Camera_Center;
+    public struct CameraActions
+    {
+        private @InputMaster m_Wrapper;
+        public CameraActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MoveCamera => m_Wrapper.m_Camera_MoveCamera;
+        public InputAction @Center => m_Wrapper.m_Camera_Center;
+        public InputActionMap Get() { return m_Wrapper.m_Camera; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CameraActions set) { return set.Get(); }
+        public void SetCallbacks(ICameraActions instance)
+        {
+            if (m_Wrapper.m_CameraActionsCallbackInterface != null)
+            {
+                @MoveCamera.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnMoveCamera;
+                @MoveCamera.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnMoveCamera;
+                @MoveCamera.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnMoveCamera;
+                @Center.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnCenter;
+                @Center.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnCenter;
+                @Center.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnCenter;
+            }
+            m_Wrapper.m_CameraActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MoveCamera.started += instance.OnMoveCamera;
+                @MoveCamera.performed += instance.OnMoveCamera;
+                @MoveCamera.canceled += instance.OnMoveCamera;
+                @Center.started += instance.OnCenter;
+                @Center.performed += instance.OnCenter;
+                @Center.canceled += instance.OnCenter;
+            }
+        }
+    }
+    public CameraActions @Camera => new CameraActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -286,13 +349,17 @@ public class @InputMaster : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface IUIActions
     {
         void OnToggleInventory(InputAction.CallbackContext context);
-        void OnMoveCamera(InputAction.CallbackContext context);
     }
     public interface IPointerActions
     {
         void OnMousePosition(InputAction.CallbackContext context);
+    }
+    public interface ICameraActions
+    {
+        void OnMoveCamera(InputAction.CallbackContext context);
+        void OnCenter(InputAction.CallbackContext context);
     }
 }
