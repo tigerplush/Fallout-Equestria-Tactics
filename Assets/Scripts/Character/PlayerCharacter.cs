@@ -32,6 +32,8 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
         canMove = true;
         DefaultUI.instance.SetUIInteractable(true);
         controls.Enable();
+
+        inventory.EquipmentChanged += OnEquipmentChange;
     }
 
     public override void EndRound()
@@ -39,6 +41,8 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
         base.EndRound();
         canMove = false;
         controls.Disable();
+
+        inventory.EquipmentChanged -= OnEquipmentChange;
     }
 
     protected override void Update()
@@ -78,13 +82,14 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
 
     public void SwitchWeapons()
     {
-        if(currentWeapon == inventory.primaryWeapon)
+        switch(currentWeapon)
         {
-            currentWeapon = inventory.secondaryWeapon;
-        }
-        else
-        {
-            currentWeapon = inventory.primaryWeapon;
+            case WeaponType.Primary:
+                currentWeapon = WeaponType.Secondary;
+                break;
+            case WeaponType.Secondary:
+                currentWeapon = WeaponType.Primary;
+                break;
         }
 
         BattleManager.instance.EnableHitChance();
@@ -93,5 +98,10 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
     public void OnSwitchWeapons(InputAction.CallbackContext context)
     {
 
+    }
+
+    private void OnEquipmentChange()
+    {
+        BattleManager.instance.EnableHitChance();
     }
 }

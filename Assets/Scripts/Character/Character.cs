@@ -38,7 +38,7 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
 
     [Header("Items")]
     public Inventory inventory;
-    public Weapon currentWeapon;
+    public WeaponType currentWeapon;
     public Weapon defaultWeapon;
 
     [Header("Object fields")]
@@ -64,7 +64,7 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     {
         BattleManager.instance.OnDisableHitChance += DisableHitChanceUI;
 
-        currentWeapon = inventory.primaryWeapon;
+        currentWeapon = WeaponType.Primary;
     }
 
     protected virtual void OnDestroy()
@@ -182,9 +182,20 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     {
         get
         {
-            if(currentWeapon != null)
+            Weapon weapon = null;
+            switch(currentWeapon)
             {
-                return currentWeapon;
+                case WeaponType.Primary:
+                    weapon = inventory.primaryWeapon;
+                    break;
+
+                case WeaponType.Secondary:
+                    weapon = inventory.secondaryWeapon;
+                    break;
+            }
+            if(weapon != null)
+            {
+                return weapon;
             }
             return defaultWeapon;
         }

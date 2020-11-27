@@ -11,6 +11,9 @@ public class Inventory : MonoBehaviour
     public Weapon primaryWeapon;
     public Weapon secondaryWeapon;
 
+    public delegate void EquipmentChangedHandler();
+    public EquipmentChangedHandler EquipmentChanged;
+
     public void Add(Item item)
     {
         inventory.Add(item);
@@ -25,26 +28,28 @@ public class Inventory : MonoBehaviour
     {
         item.Equip(this, data);
         UIManager.instance.inventoryUI.UpdateUI(this);
-        BattleManager.instance.EnableHitChance();
+
+        EquipmentChanged?.Invoke();
     }
 
-    public void Equip(Weapon weapon, int type)
+    public void Equip(Weapon weapon, WeaponType type)
     {
-        if(type == 1)
+        switch(type)
         {
-            secondaryWeapon = weapon;
-            if(primaryWeapon == weapon)
-            {
-                primaryWeapon = null;
-            }
-        }
-        else
-        {
-            primaryWeapon = weapon;
-            if (secondaryWeapon == weapon)
-            {
-                secondaryWeapon = null;
-            }
+            case WeaponType.Primary:
+                primaryWeapon = weapon;
+                if (secondaryWeapon == weapon)
+                {
+                    secondaryWeapon = null;
+                }
+                break;
+            case WeaponType.Secondary:
+                secondaryWeapon = weapon;
+                if (primaryWeapon == weapon)
+                {
+                    primaryWeapon = null;
+                }
+                break;
         }
     }
 
@@ -73,11 +78,6 @@ public class Inventory : MonoBehaviour
         equippedArmor.Add(armor);
     }
 
-    public void Unequip(Armor armor)
-    {
-        UIManager.instance.inventoryUI.UpdateUI(this);
-    }
-
     public void Unequip(BodyPart bodyPart)
     {
         Armor[] tempArmor = equippedArmor.ToArray();
@@ -89,18 +89,23 @@ public class Inventory : MonoBehaviour
             }
         }
         UIManager.instance.inventoryUI.UpdateUI(this);
+
+        EquipmentChanged?.Invoke();
     }
 
-    public void Unequip(int type)
+    public void Unequip(WeaponType type)
     {
-        if(type == 0)
+        switch(type)
         {
-            primaryWeapon = null;
+            case WeaponType.Primary:
+                primaryWeapon = null;
+                break;
+            case WeaponType.Secondary:
+                secondaryWeapon = null;
+                break;
         }
-        else
-        {
-            secondaryWeapon = null;
-        }
+
+        EquipmentChanged?.Invoke();
     }
 
     public float GetArmorClass(BodyPart bodyPart)

@@ -8,7 +8,7 @@ public class WeaponSlotUI : MonoBehaviour, ISlot
 {
     public Button button;
     public TextMeshProUGUI text;
-    public int type;
+    public WeaponType type;
 
     private InventoryUI inventoryUI;
 

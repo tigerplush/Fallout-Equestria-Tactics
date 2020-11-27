@@ -32,11 +32,17 @@ public class Attack
     public float range;
 }
 
+public enum WeaponType
+{
+    Primary,
+    Secondary
+}
+
 public class WeaponData : ItemData
 {
-    public int type;
+    public WeaponType type;
 
-    public WeaponData(int type)
+    public WeaponData(WeaponType type)
     {
         this.type = type;
     }

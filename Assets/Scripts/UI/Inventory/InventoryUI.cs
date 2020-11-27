@@ -149,7 +149,7 @@ public class InventoryUI : MonoBehaviour
         inventory.Unequip(part);
     }
 
-    public void Unequip(int type)
+    public void Unequip(WeaponType type)
     {
         inventory.Unequip(type);
     }
