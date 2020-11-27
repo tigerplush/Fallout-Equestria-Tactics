@@ -14,10 +14,20 @@ public enum BodyPart
     RightLeg = 64
 }
 
+public class ArmorData : ItemData
+{
+    public BodyPart bodyPart;
+    public ArmorData(BodyPart bodyPart)
+    {
+        this.bodyPart = bodyPart;
+    }
+}
+
 [CreateAssetMenu(menuName = "Items/Armor")]
 public class Armor : Item
 {
     public List<BodyPart> equippedAt;
+    public bool eitherOr = false;
 
     //armor class makes it harder to hit
     public float armorClass;
@@ -30,7 +40,16 @@ public class Armor : Item
 
     public override void Equip(Inventory inventory, ItemData data)
     {
-        inventory.Equip(this);
+        Armor armor = this;
+        ArmorData armorData = data as ArmorData;
+        if(eitherOr && armorData != null)
+        {
+            Armor clone = Instantiate(this);
+            clone.name = name;
+            clone.equippedAt.RemoveAll(slots => slots != armorData.bodyPart);
+            armor = clone;
+        }
+        inventory.Equip(armor);
     }
 
     public bool EquippedAt(BodyPart bodyPart)

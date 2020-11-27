@@ -78,6 +78,11 @@ public class Inventory : MonoBehaviour
         equippedArmor.Add(armor);
     }
 
+    public void Equip(Armor armor, BodyPart bodyPart)
+    {
+
+    }
+
     public void Unequip(BodyPart bodyPart)
     {
         Armor[] tempArmor = equippedArmor.ToArray();

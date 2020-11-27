@@ -44,7 +44,7 @@ public class ArmorSlotUI : MonoBehaviour, ISlot
 
     public bool Accept(Item item, out ItemData data)
     {
-        data = new ItemData();
+        data = new ArmorData(acceptedBodypart);
         return TestAcceptability(item);
     }
 
