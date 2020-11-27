@@ -27,7 +27,6 @@ public class Inventory : MonoBehaviour
     public void Equip(Item item, ItemData data)
     {
         item.Equip(this, data);
-        UIManager.instance.inventoryUI.UpdateUI(this);
 
         EquipmentChanged?.Invoke();
     }
@@ -93,7 +92,6 @@ public class Inventory : MonoBehaviour
                 equippedArmor.Remove(armor);
             }
         }
-        UIManager.instance.inventoryUI.UpdateUI(this);
 
         EquipmentChanged?.Invoke();
     }

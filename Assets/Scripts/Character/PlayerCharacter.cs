@@ -103,5 +103,6 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
     private void OnEquipmentChange()
     {
         BattleManager.instance.EnableHitChance();
+        UIManager.instance.inventoryUI.UpdateUI(inventory);
     }
 }
