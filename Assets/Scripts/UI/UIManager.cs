@@ -46,4 +46,9 @@ public class UIManager : MonoBehaviour, InputMaster.IUIActions
     {
         inventoryUI.gameObject.SetActive(!inventoryUI.gameObject.activeSelf);
     }
+
+    public void UpdateInventoryUI(Inventory inventory)
+    {
+        inventoryUI.UpdateUI(inventory);
+    }
 }
