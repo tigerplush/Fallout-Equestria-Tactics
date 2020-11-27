@@ -130,8 +130,8 @@ public class InventoryUI : MonoBehaviour
         {
             slot.Reset();
         }
-        primary.Reset();
-        secondary.Reset();
+        primary.Enable();
+        secondary.Enable();
     }
 
     private void MoveIcon(PointerEventData eventData)

@@ -30,10 +30,11 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
     {
         base.StartRound();
         canMove = true;
-        DefaultUI.instance.SetUIInteractable(true);
         controls.Enable();
 
+        DefaultUI.instance.SetUIInteractable(true);
         inventory.EquipmentChanged += OnEquipmentChange;
+        OnEquipmentChange();
     }
 
     public override void EndRound()
@@ -93,6 +94,7 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
         }
 
         BattleManager.instance.EnableHitChance();
+        DefaultUI.instance.SetWeaponsDisplay(currentWeapon);
     }
 
     public void OnSwitchWeapons(InputAction.CallbackContext context)

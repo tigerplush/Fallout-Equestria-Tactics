@@ -36,7 +36,7 @@ public class WeaponSlotUI : MonoBehaviour, ISlot
         return weapon != null;
     }
 
-    public void Reset()
+    public void Enable()
     {
         button.interactable = true;
     }
@@ -52,6 +52,9 @@ public class WeaponSlotUI : MonoBehaviour, ISlot
 
     public void Unequip()
     {
-        inventoryUI.Unequip(type);
+        if(inventoryUI != null)
+        {
+            inventoryUI.Unequip(type);
+        }
     }
 }

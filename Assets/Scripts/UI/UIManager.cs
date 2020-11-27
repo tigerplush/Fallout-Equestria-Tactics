@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour, InputMaster.IUIActions
 {
     public static UIManager instance = null;
     private InputMaster controls;
+    public DefaultUI defaultUI;
     public InventoryUI inventoryUI;
 
     private void Awake()
@@ -50,5 +51,6 @@ public class UIManager : MonoBehaviour, InputMaster.IUIActions
     public void UpdateInventoryUI(Inventory inventory)
     {
         inventoryUI.UpdateUI(inventory);
+        defaultUI.UpdateWeaponsDisplay(inventory.primaryWeapon, inventory.secondaryWeapon);
     }
 }
