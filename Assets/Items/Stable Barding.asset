@@ -15,6 +15,6 @@ MonoBehaviour:
   weight: 0
   value: 0
   equippedAt: 040000000800000010000000
-  armorClass: 0
-  damageThreshold: 0
-  damageResistance: 0
+  armorClass: 1
+  damageThreshold: 2
+  damageResistance: 2

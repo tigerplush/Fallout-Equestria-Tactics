@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4530934a4d668534297ca8e6e4f7095d, type: 3}
   m_Name: Prewar Shirt
   m_EditorClassIdentifier: 
-  weight: 0
-  value: 0
+  weight: 1
+  value: 300
   equippedAt: 04000000
   armorClass: 0
   damageThreshold: 0
