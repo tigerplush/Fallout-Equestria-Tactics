@@ -276,8 +276,6 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
 
     public void Damage(float damage)
     {
-        Debug.Log($"Damage Resistance is {inventory.GetDamageResistance()}");
-        Debug.Log($"Damage Threshold is {inventory.GetDamageThreshold()}");
         float damageResisted = damage * (100f - Mathf.Min(inventory.GetDamageResistance(), 85f)) / 100f;
         float damageFinal = Mathf.Max(damageResisted - inventory.GetDamageThreshold(), damage * 0.2f);
 
