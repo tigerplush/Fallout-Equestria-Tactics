@@ -56,11 +56,8 @@ public class InventoryUI : MonoBehaviour
 
         foreach(ArmorSlotUI slotUi in armorSlots)
         {
-            ArmorSlot armorSlot = inventory.armorSlots.Find(slot => slot.bodyPart == slotUi.acceptedBodypart);
-            if(armorSlot != null)
-            {
-                slotUi.Set(armorSlot.armor);
-            }
+            Armor am = inventory.equippedArmor.Find(armor => armor.EquippedAt(slotUi.acceptedBodypart));
+            slotUi.Set(am);
         }
     }
 

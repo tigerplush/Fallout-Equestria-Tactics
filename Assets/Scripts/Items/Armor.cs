@@ -32,4 +32,9 @@ public class Armor : Item
     {
         inventory.Equip(this);
     }
+
+    public bool EquippedAt(BodyPart bodyPart)
+    {
+        return equippedAt.Contains(bodyPart);
+    }
 }

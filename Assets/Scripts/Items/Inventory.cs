@@ -6,7 +6,7 @@ public class Inventory : MonoBehaviour
 {
     public List<Item> inventory = new List<Item>();
 
-    public List<ArmorSlot> armorSlots;
+    public List<Armor> equippedArmor = new List<Armor>();
 
     public Weapon primaryWeapon;
     public Weapon secondaryWeapon;
@@ -34,56 +34,104 @@ public class Inventory : MonoBehaviour
 
     public void Equip(Armor armor)
     {
-
-        // check if character has body part to equip armor
-        foreach(BodyPart part in armor.equippedAt)
+        //Create copy of worn armor because you can't change an iterator
+        Armor[] tempArmor = equippedArmor.ToArray();
+        foreach(Armor am in tempArmor)
         {
-            if(!armorSlots.Exists(slot => slot.bodyPart == part))
+            //if worn armor was already removed, skip check
+            if(!equippedArmor.Contains(am))
             {
-                return;
+                continue;
+            }
+            //foreach bodypart in new armor, unequip the old one
+            foreach(BodyPart part in armor.equippedAt)
+            {
+                if(am.EquippedAt(part))
+                {
+                    equippedArmor.Remove(am);
+                }
             }
         }
 
-        // unequip old armor
-        foreach (BodyPart part in armor.equippedAt)
-        {
-            ArmorSlot armorSlot = armorSlots.Find(slot => slot.bodyPart == part);
-            if(armorSlot != null && armorSlot.armor)
-            {
-                Unequip(armorSlot.armor);
-            }
-        }
-
-        // equip new armor
-        foreach(BodyPart part in armor.equippedAt)
-        {
-            ArmorSlot armorSlot = armorSlots.Find(slot => slot.bodyPart == part);
-            if (armorSlot != null)
-            {
-                armorSlot.armor = armor;
-            }
-        }
+        //equip new armor
+        equippedArmor.Add(armor);
     }
 
     public void Unequip(Armor armor)
     {
-        foreach(BodyPart part in armor.equippedAt)
+        UIManager.instance.inventoryUI.UpdateUI(this);
+    }
+
+    public void Unequip(BodyPart bodyPart)
+    {
+        Armor[] tempArmor = equippedArmor.ToArray();
+        foreach(Armor armor in tempArmor)
         {
-            ArmorSlot armorSlot = armorSlots.Find(slot => slot.bodyPart == part);
-            if(armorSlot != null)
+            if(armor.EquippedAt(bodyPart))
             {
-                armorSlot.armor = null;
+                equippedArmor.Remove(armor);
             }
         }
         UIManager.instance.inventoryUI.UpdateUI(this);
     }
 
-    public void Unequip(BodyPart part)
+    public float GetArmorClass(BodyPart bodyPart)
     {
-        if(armorSlots.Exists(slot => slot.bodyPart == part && slot.armor != null))
+        Armor armor = equippedArmor.Find(am => am.EquippedAt(bodyPart));
+        if(armor != null)
         {
-            ArmorSlot armorSlot = armorSlots.Find(slot => slot.bodyPart == part);
-            Unequip(armorSlot.armor);
+            return armor.armorClass;
         }
+        return 0f;
+    }
+
+    public float GetArmorClass()
+    {
+        float armorClass = 0f;
+        foreach(Armor armor in equippedArmor)
+        {
+            armorClass += armor.armorClass;
+        }
+        return armorClass;
+    }
+
+    public float GetDamageThreshold(BodyPart bodyPart)
+    {
+        Armor armor = equippedArmor.Find(am => am.EquippedAt(bodyPart));
+        if (armor != null)
+        {
+            return armor.damageThreshold;
+        }
+        return 0f;
+    }
+
+    public float GetDamageThreshold()
+    {
+        float damageThreshold = 0f;
+        foreach (Armor armor in equippedArmor)
+        {
+            damageThreshold += armor.damageThreshold;
+        }
+        return damageThreshold;
+    }
+
+    public float GetDamageResistance(BodyPart bodyPart)
+    {
+        Armor armor = equippedArmor.Find(am => am.EquippedAt(bodyPart));
+        if(armor != null)
+        {
+            return armor.damageResistance;
+        }
+        return 0f;
+    }
+
+    public float GetDamageResistance()
+    {
+        float damageResistance = 0f;
+        foreach (Armor armor in equippedArmor)
+        {
+            damageResistance += armor.damageResistance;
+        }
+        return damageResistance;
     }
 }

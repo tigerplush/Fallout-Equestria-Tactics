@@ -188,6 +188,14 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    private float ArmorClass
+    {
+        get
+        {
+            return (float)Agility + inventory.GetArmorClass();
+        }
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -211,7 +219,9 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
             float rangedHitChance = Mathf.Lerp(hitChance, 0f, (distance - 1f) / defaultAttack.range);
 
             float roll = Random.Range(0f, 100f);
-            if(roll < rangedHitChance)
+
+            float requiredToHit = Mathf.Min((rangedHitChance - other.ArmorClass), 95f);
+            if(roll <= requiredToHit)
             {
                 float damage = Random.Range(ActiveWeapon.minDamage, ActiveWeapon.maxDamage);
                 float bonusDamage = Mathf.Clamp((float)Strength - 5f, 0f, (float)Strength);
@@ -253,6 +263,11 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
 
     public void Damage(float damage)
     {
+        Debug.Log($"Damage Resistance is {inventory.GetDamageResistance()}");
+        Debug.Log($"Damage Threshold is {inventory.GetDamageThreshold()}");
+        float damageResisted = damage * (100f - Mathf.Min(inventory.GetDamageResistance(), 85f)) / 100f;
+        float damageFinal = Mathf.Max(damageResisted - inventory.GetDamageThreshold(), damage * 0.2f);
+
         DamageTextManager.instance.Damage(transform.position, damage);
         Health -= damage;
         if(Health <= 0f)
