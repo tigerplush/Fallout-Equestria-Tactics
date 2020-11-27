@@ -157,6 +157,33 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Player"",
+            ""id"": ""f184beca-4996-46d2-a5d8-6e0fa2ce3c86"",
+            ""actions"": [
+                {
+                    ""name"": ""SwitchWeapons"",
+                    ""type"": ""Button"",
+                    ""id"": ""7a0fd2bb-85f9-4ac5-b5bb-6accf205d683"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6311f45d-fbf7-4f3b-bd18-4a5b494ecf43"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""SwitchWeapons"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -188,6 +215,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
         m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
         m_Camera_MoveCamera = m_Camera.FindAction("MoveCamera", throwIfNotFound: true);
         m_Camera_Center = m_Camera.FindAction("Center", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_SwitchWeapons = m_Player.FindAction("SwitchWeapons", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -340,6 +370,39 @@ public class @InputMaster : IInputActionCollection, IDisposable
         }
     }
     public CameraActions @Camera => new CameraActions(this);
+
+    // Player
+    private readonly InputActionMap m_Player;
+    private IPlayerActions m_PlayerActionsCallbackInterface;
+    private readonly InputAction m_Player_SwitchWeapons;
+    public struct PlayerActions
+    {
+        private @InputMaster m_Wrapper;
+        public PlayerActions(@InputMaster wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SwitchWeapons => m_Wrapper.m_Player_SwitchWeapons;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void SetCallbacks(IPlayerActions instance)
+        {
+            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            {
+                @SwitchWeapons.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapons;
+                @SwitchWeapons.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapons;
+                @SwitchWeapons.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSwitchWeapons;
+            }
+            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @SwitchWeapons.started += instance.OnSwitchWeapons;
+                @SwitchWeapons.performed += instance.OnSwitchWeapons;
+                @SwitchWeapons.canceled += instance.OnSwitchWeapons;
+            }
+        }
+    }
+    public PlayerActions @Player => new PlayerActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -361,5 +424,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
     {
         void OnMoveCamera(InputAction.CallbackContext context);
         void OnCenter(InputAction.CallbackContext context);
+    }
+    public interface IPlayerActions
+    {
+        void OnSwitchWeapons(InputAction.CallbackContext context);
     }
 }

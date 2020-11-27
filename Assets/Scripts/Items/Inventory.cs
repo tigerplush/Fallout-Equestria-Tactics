@@ -21,15 +21,31 @@ public class Inventory : MonoBehaviour
         inventory.Remove(item);
     }
 
-    public void Equip(Item item)
+    public void Equip(Item item, ItemData data)
     {
-        item.Equip(this);
+        item.Equip(this, data);
         UIManager.instance.inventoryUI.UpdateUI(this);
+        BattleManager.instance.EnableHitChance();
     }
 
-    public void Equip(Weapon weapon)
+    public void Equip(Weapon weapon, int type)
     {
-
+        if(type == 1)
+        {
+            secondaryWeapon = weapon;
+            if(primaryWeapon == weapon)
+            {
+                primaryWeapon = null;
+            }
+        }
+        else
+        {
+            primaryWeapon = weapon;
+            if (secondaryWeapon == weapon)
+            {
+                secondaryWeapon = null;
+            }
+        }
     }
 
     public void Equip(Armor armor)
@@ -73,6 +89,18 @@ public class Inventory : MonoBehaviour
             }
         }
         UIManager.instance.inventoryUI.UpdateUI(this);
+    }
+
+    public void Unequip(int type)
+    {
+        if(type == 0)
+        {
+            primaryWeapon = null;
+        }
+        else
+        {
+            secondaryWeapon = null;
+        }
     }
 
     public float GetArmorClass(BodyPart bodyPart)

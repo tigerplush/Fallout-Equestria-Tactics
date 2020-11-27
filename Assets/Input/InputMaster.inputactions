@@ -144,6 +144,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Player",
+            "id": "f184beca-4996-46d2-a5d8-6e0fa2ce3c86",
+            "actions": [
+                {
+                    "name": "SwitchWeapons",
+                    "type": "Button",
+                    "id": "7a0fd2bb-85f9-4ac5-b5bb-6accf205d683",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6311f45d-fbf7-4f3b-bd18-4a5b494ecf43",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "SwitchWeapons",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class ItemData
+{
+
+}
+
 public abstract class Item : ScriptableObject
 {
     public float weight;
     public float value;
 
-    public abstract void Equip(Inventory inventory);
+    public abstract void Equip(Inventory inventory, ItemData data);
 }

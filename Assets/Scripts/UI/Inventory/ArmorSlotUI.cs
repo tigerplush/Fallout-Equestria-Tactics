@@ -42,8 +42,9 @@ public class ArmorSlotUI : MonoBehaviour, ISlot
         button.interactable = true;
     }
 
-    public bool Accept(Item item)
+    public bool Accept(Item item, out ItemData data)
     {
+        data = new ItemData();
         return TestAcceptability(item);
     }
 

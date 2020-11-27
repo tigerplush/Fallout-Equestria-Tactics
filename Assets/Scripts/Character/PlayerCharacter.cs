@@ -1,15 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerCharacter : Character
+public class PlayerCharacter : Character, InputMaster.IPlayerActions
 {
     public bool canMove = false;
 
+    private InputMaster controls;
 
     protected override void Awake()
     {
         base.Awake();
+        controls = new InputMaster();
+        controls.Player.SwitchWeapons.performed += context => SwitchWeapons();
     }
 
     protected override void Start()
@@ -27,12 +31,14 @@ public class PlayerCharacter : Character
         base.StartRound();
         canMove = true;
         DefaultUI.instance.SetUIInteractable(true);
+        controls.Enable();
     }
 
     public override void EndRound()
     {
         base.EndRound();
         canMove = false;
+        controls.Disable();
     }
 
     protected override void Update()
@@ -68,5 +74,24 @@ public class PlayerCharacter : Character
         {
             base.SetTarget(target);
         }
+    }
+
+    public void SwitchWeapons()
+    {
+        if(currentWeapon == inventory.primaryWeapon)
+        {
+            currentWeapon = inventory.secondaryWeapon;
+        }
+        else
+        {
+            currentWeapon = inventory.primaryWeapon;
+        }
+
+        BattleManager.instance.EnableHitChance();
+    }
+
+    public void OnSwitchWeapons(InputAction.CallbackContext context)
+    {
+
     }
 }

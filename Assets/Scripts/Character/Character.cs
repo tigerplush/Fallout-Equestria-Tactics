@@ -63,6 +63,8 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     protected virtual void Start()
     {
         BattleManager.instance.OnDisableHitChance += DisableHitChanceUI;
+
+        currentWeapon = inventory.primaryWeapon;
     }
 
     protected virtual void OnDestroy()

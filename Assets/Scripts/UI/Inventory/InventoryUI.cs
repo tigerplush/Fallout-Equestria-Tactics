@@ -13,6 +13,8 @@ public class InventoryUI : MonoBehaviour
     public Sprite tempSprite;
 
     public ArmorSlotUI[] armorSlots;
+    public WeaponSlotUI primary;
+    public WeaponSlotUI secondary;
 
     private List<ItemUI> itemUiPool = new List<ItemUI>();
     private GameObject draggableIcon;
@@ -24,6 +26,8 @@ public class InventoryUI : MonoBehaviour
         {
             slot.SetUp(this);
         }
+        primary.SetUp(this);
+        secondary.SetUp(this);
     }
 
     private void OnEnable()
@@ -59,6 +63,9 @@ public class InventoryUI : MonoBehaviour
             Armor am = inventory.equippedArmor.Find(armor => armor.EquippedAt(slotUi.acceptedBodypart));
             slotUi.Set(am);
         }
+
+        primary.Set(inventory.primaryWeapon);
+        secondary.Set(inventory.secondaryWeapon);
     }
 
     public void Hover(Item item)
@@ -73,7 +80,10 @@ public class InventoryUI : MonoBehaviour
         {
             slot.CanAccept(item);
         }
+        primary.CanAccept(item);
+        secondary.CanAccept(item);
 
+        //create drag icon
         draggableIcon = new GameObject("icon");
         draggableIcon.transform.SetParent(transform, false);
         draggableIcon.transform.SetAsLastSibling();
@@ -107,11 +117,11 @@ public class InventoryUI : MonoBehaviour
             ISlot slot = results[0].gameObject.GetComponent<ISlot>();
             if(slot != null)
             {
-                if(slot.Accept(item) && inventory != null)
+                ItemData data;
+                if (slot.Accept(item, out data) && inventory != null)
                 {
-                    inventory.Equip(item);
+                    inventory.Equip(item, data);
                 }
-
             }
         }
 
@@ -120,6 +130,8 @@ public class InventoryUI : MonoBehaviour
         {
             slot.Reset();
         }
+        primary.Reset();
+        secondary.Reset();
     }
 
     private void MoveIcon(PointerEventData eventData)
@@ -135,5 +147,10 @@ public class InventoryUI : MonoBehaviour
     public void Unequip(BodyPart part)
     {
         inventory.Unequip(part);
+    }
+
+    public void Unequip(int type)
+    {
+        inventory.Unequip(type);
     }
 }

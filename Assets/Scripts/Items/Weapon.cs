@@ -32,6 +32,16 @@ public class Attack
     public float range;
 }
 
+public class WeaponData : ItemData
+{
+    public int type;
+
+    public WeaponData(int type)
+    {
+        this.type = type;
+    }
+}
+
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Items/Weapons/New Weapon")]
 public class Weapon : Item
 {
@@ -46,8 +56,9 @@ public class Weapon : Item
     public int handsRequired = 1;
     public int strengthRequired = 1;
 
-    public override void Equip(Inventory inventory)
+    public override void Equip(Inventory inventory, ItemData data)
     {
-        inventory.Equip(this);
+        WeaponData weaponData = data as WeaponData;
+        inventory.Equip(this, weaponData.type);
     }
 }
