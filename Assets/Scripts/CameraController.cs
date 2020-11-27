@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour, InputMaster.ICameraActions
 
     private void LateUpdate()
     {
-        if(follow)
+        if(follow && cameraFollow != null)
         {
             transform.position = cameraFollow.transform.position;
         }
