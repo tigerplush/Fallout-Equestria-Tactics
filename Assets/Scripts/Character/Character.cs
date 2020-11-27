@@ -174,7 +174,7 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
         if(isMoving)
         {
             transform.position = Vector3.Lerp(Hex.ToWorld(startingPoint), Hex.ToWorld(currentGoal), elapsedTime);
-            transform.position += new Vector3(0f, 0.5f, 0f);
+            transform.position += new Vector3(0f, 0f, 0f);
         }
     }
 
