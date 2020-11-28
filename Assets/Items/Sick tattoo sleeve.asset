@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4530934a4d668534297ca8e6e4f7095d, type: 3}
   m_Name: Sick tattoo sleeve
   m_EditorClassIdentifier: 
+  itemName: Sick tatoo sleeve
+  itemDescription: A sleeve that looks like you have a badass dragon tatooed on your
+    forehoof. You badass.
   weight: 0
   value: 0
   equippedAt: 0800000010000000

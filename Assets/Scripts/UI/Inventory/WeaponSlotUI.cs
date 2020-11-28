@@ -46,7 +46,7 @@ public class WeaponSlotUI : MonoBehaviour, ISlot
         text.text = "";
         if (weapon != null)
         {
-            text.text = weapon.name;
+            text.text = weapon.itemName;
         }
     }
 

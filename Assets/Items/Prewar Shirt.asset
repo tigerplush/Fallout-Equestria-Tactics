@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4530934a4d668534297ca8e6e4f7095d, type: 3}
   m_Name: Prewar Shirt
   m_EditorClassIdentifier: 
+  itemName: Prewar Shirt
+  itemDescription: A nice, crisp and clean shirt from way before.
   weight: 1
   value: 300
   equippedAt: 04000000
+  eitherOr: 0
   armorClass: 0
   damageThreshold: 0
   damageResistance: 0

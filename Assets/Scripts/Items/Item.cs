@@ -9,6 +9,8 @@ public class ItemData
 
 public abstract class Item : ScriptableObject
 {
+    public string itemName;
+    public string itemDescription;
     public float weight;
     public float value;
 

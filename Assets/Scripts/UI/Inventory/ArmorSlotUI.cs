@@ -53,7 +53,7 @@ public class ArmorSlotUI : MonoBehaviour, ISlot
         text.text = "";
         if(armor != null)
         {
-            text.text = armor.name;
+            text.text = armor.itemName;
         }
     }
 

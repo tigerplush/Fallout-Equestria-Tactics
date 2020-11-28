@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602050d81e3f74c4b8173be59a2e1c4e, type: 3}
   m_Name: Baseball Bat
   m_EditorClassIdentifier: 
-  skillType: 0
-  damageType: 0
+  itemName: Baseball Bat
+  itemDescription: A league regulation baseball bat made from maple wood.
   weight: 3
   value: 30
+  skillType: 0
+  damageType: 0
   minDamage: 1
   maxDamage: 6
   attacks:

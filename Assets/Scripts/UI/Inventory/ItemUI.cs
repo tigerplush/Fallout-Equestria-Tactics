@@ -20,7 +20,7 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IBeginDragHandler, ID
     public void Set(Item item)
     {
         this.item = item;
-        text.text = item.name;
+        text.text = item.itemName;
     }
 
     public void SetInteractability(bool interactable)
