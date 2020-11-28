@@ -48,7 +48,7 @@ public class WeaponData : ItemData
     }
 }
 
-[CreateAssetMenu(fileName = "New Weapon", menuName = "Items/Weapons/New Weapon")]
+[CreateAssetMenu(menuName = "Items/Weapon", order = 11)]
 public class Weapon : Item
 {
     public SkillType skillType;

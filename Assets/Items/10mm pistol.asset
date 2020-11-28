@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602050d81e3f74c4b8173be59a2e1c4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 786234c39148faf4dbb91eafbdf47c73, type: 3}
   m_Name: 10mm pistol
   m_EditorClassIdentifier: 
-  skillType: 2
-  damageType: 0
   weight: 3
   value: 250
+  skillType: 2
+  damageType: 0
   minDamage: 5
   maxDamage: 12
   attacks:
@@ -27,3 +27,7 @@ MonoBehaviour:
     range: 25
   handsRequired: 1
   strengthRequired: 3
+  acceptedAmmunition:
+  - {fileID: 11400000, guid: c08e2bc746aeb0a46b1cfe03ebd6be14, type: 2}
+  - {fileID: 11400000, guid: 0aebcac373d0ed94a89eb4c00f62de14, type: 2}
+  ammoCapacity: 12
