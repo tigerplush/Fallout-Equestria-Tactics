@@ -15,6 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     material: {fileID: 2100000, guid: 79a0721056326bc478a92f6d5a2a4e2d, type: 2}
+    renderSceneView: 0
 --- !u!114 &-1520574537969885530
 MonoBehaviour:
   m_ObjectHideFlags: 0
