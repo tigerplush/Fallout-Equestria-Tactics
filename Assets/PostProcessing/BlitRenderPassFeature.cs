@@ -9,6 +9,7 @@ public class BlitRenderPassFeature : ScriptableRendererFeature
     public class Settings
     {
         public Material material = null;
+        public bool renderSceneView = false;
     }
 
     public Settings settings = new Settings();
@@ -16,6 +17,10 @@ public class BlitRenderPassFeature : ScriptableRendererFeature
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
+        if(renderingData.cameraData.isSceneViewCamera && !settings.renderSceneView)
+        {
+            return;
+        }
         renderPass.source = renderer.cameraColorTarget;
         renderer.EnqueuePass(renderPass);
     }
