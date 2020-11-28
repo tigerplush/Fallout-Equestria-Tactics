@@ -40,7 +40,7 @@ public class InventoryUI : MonoBehaviour
     public void UpdateUI(Inventory inventory)
     {
         this.inventory = inventory;
-        int numberOfItems = inventory.inventory.Count;
+        int numberOfItems = inventory.Items.Count;
 
         //Create missing number of prefabs
         for (int i = itemUiPool.Count; i < numberOfItems; i++)
@@ -55,7 +55,7 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < itemUiPool.Count; i++)
         {
             itemUiPool[i].gameObject.SetActive(i < numberOfItems);
-            itemUiPool[i].Set(inventory.inventory[i]);
+            itemUiPool[i].Set(inventory.Items[i]);
         }
 
         foreach(ArmorSlotUI slotUi in armorSlots)

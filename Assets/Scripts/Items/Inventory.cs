@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<Item> inventory = new List<Item>();
+    [SerializeField]
+    private List<Item> items = new List<Item>();
 
     public List<Armor> equippedArmor = new List<Armor>();
 
@@ -14,14 +15,63 @@ public class Inventory : MonoBehaviour
     public delegate void EquipmentChangedHandler();
     public EquipmentChangedHandler EquipmentChanged;
 
+    public List<Item> Items
+    {
+        get
+        {
+            List<Item> inventory = new List<Item>();
+            inventory.AddRange(items);
+            inventory.AddRange(equippedArmor);
+            if(primaryWeapon != null)
+            {
+                inventory.Add(primaryWeapon);
+            }
+            if (secondaryWeapon != null)
+            {
+                inventory.Add(secondaryWeapon);
+            }
+            return inventory;
+        }
+    }
+
+    private void Start()
+    {
+        CreateCopies();
+    }
+
+    /// <summary>
+    /// Creates a copy of every item in inventory so it can be changed at runtime individually
+    /// </summary>
+    private void CreateCopies()
+    {
+        for(int i = 0; i < items.Count; i++)
+        {
+            items[i] = Instantiate(items[i]);
+        }
+        for(int i = 0; i < equippedArmor.Count; i++)
+        {
+            equippedArmor[i] = Instantiate(equippedArmor[i]);
+        }
+
+        if(primaryWeapon != null)
+        {
+            primaryWeapon = Instantiate(primaryWeapon);
+        }
+
+        if (secondaryWeapon != null)
+        {
+            secondaryWeapon = Instantiate(secondaryWeapon);
+        }
+    }
+
     public void Add(Item item)
     {
-        inventory.Add(item);
+        items.Add(item);
     }
 
     public void Remove(Item item)
     {
-        inventory.Remove(item);
+        items.Remove(item);
     }
 
     public void Equip(Item item, ItemData data)
@@ -33,23 +83,36 @@ public class Inventory : MonoBehaviour
 
     public void Equip(Weapon weapon, WeaponType type)
     {
-        switch(type)
+        // Check if there is a weapon in this slot already
+        // if so, unequip it
+        Unequip(type);
+
+        // check if the weapon you want to equip is in your item pool
+        // if not, it is equipped at another slot
+        if(!items.Contains(weapon))
+        {
+            if(primaryWeapon == weapon)
+            {
+                Unequip(WeaponType.Primary);
+            }
+            if (secondaryWeapon == weapon)
+            {
+                Unequip(WeaponType.Primary);
+            }
+        }
+
+        // equip weapon at slot
+        switch (type)
         {
             case WeaponType.Primary:
                 primaryWeapon = weapon;
-                if (secondaryWeapon == weapon)
-                {
-                    secondaryWeapon = null;
-                }
                 break;
             case WeaponType.Secondary:
                 secondaryWeapon = weapon;
-                if (primaryWeapon == weapon)
-                {
-                    primaryWeapon = null;
-                }
                 break;
         }
+
+        Remove(weapon);
     }
 
     public void Equip(Armor armor)
@@ -68,13 +131,17 @@ public class Inventory : MonoBehaviour
             {
                 if(am.EquippedAt(part))
                 {
-                    equippedArmor.Remove(am);
+                    if(equippedArmor.Remove(am))
+                    {
+                        Add(am);
+                    }
                 }
             }
         }
 
         //equip new armor
         equippedArmor.Add(armor);
+        Remove(armor);
     }
 
     public void Equip(Armor armor, BodyPart bodyPart)
@@ -89,7 +156,10 @@ public class Inventory : MonoBehaviour
         {
             if(armor.EquippedAt(bodyPart))
             {
-                equippedArmor.Remove(armor);
+                if(equippedArmor.Remove(armor))
+                {
+                    Add(armor);
+                }
             }
         }
 
@@ -101,9 +171,17 @@ public class Inventory : MonoBehaviour
         switch(type)
         {
             case WeaponType.Primary:
+                if(primaryWeapon != null)
+                {
+                    Add(primaryWeapon);
+                }
                 primaryWeapon = null;
                 break;
             case WeaponType.Secondary:
+                if (secondaryWeapon != null)
+                {
+                    Add(secondaryWeapon);
+                }
                 secondaryWeapon = null;
                 break;
         }
