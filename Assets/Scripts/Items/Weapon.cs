@@ -51,6 +51,8 @@ public class WeaponData : ItemData
 [CreateAssetMenu(menuName = "Items/Weapon", order = 11)]
 public class Weapon : Item
 {
+    public GameObject worldRepresentation;
+
     public SkillType skillType;
     public DamageType damageType;
 

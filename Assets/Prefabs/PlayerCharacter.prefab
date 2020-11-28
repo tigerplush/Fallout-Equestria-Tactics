@@ -50,7 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7582472338191471562}
   characterCollider: {fileID: 2025737150572680403}
-  race: 0
+  race: {fileID: 0}
+  mouthTransform: {fileID: 8934209207393143700}
   Strength: 5
   Perception: 5
   Endurance: 5
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba17cdef56ef394c8c6b82b187565fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: []
+  items: []
   equippedArmor: []
   primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
@@ -515,6 +516,12 @@ Transform:
 --- !u!95 &7582472338191471562 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5970099326388700432, guid: 916830c217d76d841b6c4424dae881f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4314545054721136346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8934209207393143700 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4619840195865550158, guid: 916830c217d76d841b6c4424dae881f3,
     type: 3}
   m_PrefabInstance: {fileID: 4314545054721136346}
   m_PrefabAsset: {fileID: 0}

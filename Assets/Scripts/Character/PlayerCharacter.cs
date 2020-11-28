@@ -33,8 +33,6 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
         controls.Enable();
 
         DefaultUI.instance.SetUIInteractable(true);
-        inventory.EquipmentChanged += OnEquipmentChange;
-        OnEquipmentChange();
     }
 
     public override void EndRound()
@@ -42,8 +40,6 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
         base.EndRound();
         canMove = false;
         controls.Disable();
-
-        inventory.EquipmentChanged -= OnEquipmentChange;
     }
 
     protected override void Update()
@@ -102,8 +98,9 @@ public class PlayerCharacter : Character, InputMaster.IPlayerActions
 
     }
 
-    private void OnEquipmentChange()
+    protected override void OnEquipmentChange()
     {
+        base.OnEquipmentChange();
         BattleManager.instance.EnableHitChance();
         UIManager.instance.UpdateInventoryUI(inventory);
     }

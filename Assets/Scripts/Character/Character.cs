@@ -9,6 +9,7 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     public Collider characterCollider;
     [Header("Periphery")]
     public RaceElement race;
+    public Transform mouthTransform;
     [Header("S.P.E.C.I.A.L. Attributes")]
     public int Strength = 5;
     public int Perception = 5;
@@ -45,6 +46,8 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     protected bool isMoving = false;
     protected bool hasTurn = false;
 
+    private GameObject weaponRepresentation;
+
     protected virtual void Awake()
     {
         startingActionPoints = 5 + Agility / 2;
@@ -73,6 +76,9 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
         BattleManager.instance.EnableHitChance();
 
         animator.SetBool("isWalking", isMoving);
+
+        inventory.EquipmentChanged += OnEquipmentChange;
+        OnEquipmentChange();
     }
 
     public virtual void EndRound()
@@ -81,6 +87,8 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
         DefaultUI.instance.SetUIInteractable(false);
 
         animator.SetBool("isWalking", false);
+
+        inventory.EquipmentChanged -= OnEquipmentChange;
     }
 
     public void EnableHitChanceUI(Character other)
@@ -159,6 +167,11 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
             {
                 SetNextGoal();
             }
+        }
+
+        if(weaponRepresentation != null)
+        {
+            weaponRepresentation.transform.position = mouthTransform.position;
         }
     }
 
@@ -353,5 +366,14 @@ public abstract class Character : MonoBehaviour, IPointerClickHandler
     {
         CubeCoordinates[] path = AStar.FindWay(CubeCoordinates, target);
         SetPath(path);
+    }
+
+    protected virtual void OnEquipmentChange()
+    {
+        Destroy(weaponRepresentation);
+        if(ActiveWeapon != null && ActiveWeapon.worldRepresentation != null)
+        {
+            weaponRepresentation = Instantiate(ActiveWeapon.worldRepresentation, transform);
+        }
     }
 }
