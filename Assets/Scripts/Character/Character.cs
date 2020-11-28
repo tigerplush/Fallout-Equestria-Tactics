@@ -3,19 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum Race
-{
-    EarthPony,
-    Unicorn,
-    Pegasus
-}
-
 public abstract class Character : MonoBehaviour, IPointerClickHandler
 {
     public Animator animator;
     public Collider characterCollider;
     [Header("Periphery")]
-    public Race race;
+    public RaceElement race;
     [Header("S.P.E.C.I.A.L. Attributes")]
     public int Strength = 5;
     public int Perception = 5;
