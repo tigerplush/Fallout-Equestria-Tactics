@@ -56,6 +56,7 @@ public class InventoryUI : MonoBehaviour
         {
             itemUiPool[i].gameObject.SetActive(i < numberOfItems);
             itemUiPool[i].Set(inventory.Items[i]);
+            itemUiPool[i].SetInteractability(!inventory.IsEquipped(inventory.Items[i]));
         }
 
         foreach(ArmorSlotUI slotUi in armorSlots)

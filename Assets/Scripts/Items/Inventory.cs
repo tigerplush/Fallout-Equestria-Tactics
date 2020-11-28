@@ -34,6 +34,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public bool IsEquipped(Item item)
+    {
+        return !items.Contains(item);
+    }
+
     private void Start()
     {
         CreateCopies();

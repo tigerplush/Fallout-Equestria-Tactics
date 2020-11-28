@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
 public class ItemUI : MonoBehaviour, IPointerEnterHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public TextMeshProUGUI text;
+    public Button button;
     private InventoryUI inventoryUI;
     private Item item;
 
@@ -19,6 +21,11 @@ public class ItemUI : MonoBehaviour, IPointerEnterHandler, IBeginDragHandler, ID
     {
         this.item = item;
         text.text = item.name;
+    }
+
+    public void SetInteractability(bool interactable)
+    {
+        button.interactable = interactable;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
