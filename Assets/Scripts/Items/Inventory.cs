@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour
             {
                 inventory.Add(secondaryWeapon);
             }
+            inventory.Sort((x, y) => string.Compare(x.itemName, y.itemName));
             return inventory;
         }
     }
