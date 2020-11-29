@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f2f367fe7807f4bb07630b00fd13a0, type: 3}
-  m_Name: Pegasus
+  m_Script: {fileID: 11500000, guid: 04e89cd338e279841b07ee119ee05471, type: 3}
+  m_Name: Endurance
   m_EditorClassIdentifier: 
-  description: Pegasi can soar through the skies. Unlocks the Flight perk-tree.
+  description: Stamina and physical toughness. Endurance determines how far you can
+    walk and how much damage you can take.

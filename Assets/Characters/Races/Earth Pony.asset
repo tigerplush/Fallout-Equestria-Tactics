@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2f2f367fe7807f4bb07630b00fd13a0, type: 3}
   m_Name: Earth Pony
   m_EditorClassIdentifier: 
+  description: Earth ponies have no special talents but are strong as heck. Their
+    base strength is increased by 2. This includes the minimum and maximum strength
+    as well.
