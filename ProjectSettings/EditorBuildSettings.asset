@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterCreationMenu.unity
     guid: 6a9676b7e81e3b047ada6ca1e3dc7882
+  - enabled: 1
+    path: Assets/Scenes/SkillSelectionMenu.unity
+    guid: 635ba949bb63081458b502a37a84628d
   m_configObjects: {}
