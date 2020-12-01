@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -33,5 +34,10 @@ public class CharacterCreationUI : MonoBehaviour
         {
             attributePoints.text = character.attributePoints.ToString();
         }
+    }
+
+    public void Cancel()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
