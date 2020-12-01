@@ -24,7 +24,7 @@ public class CharacterObject : ScriptableObject
 
     [SerializeField]
     private int m_AttributePoints;
-    public int attributePoints
+    public int AttributePoints
     {
         get
         {

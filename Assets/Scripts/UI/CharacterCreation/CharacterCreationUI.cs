@@ -34,13 +34,13 @@ public class CharacterCreationUI : MonoBehaviour
     {
         if(attributePoints != null)
         {
-            attributePoints.text = character.attributePoints.ToString();
+            attributePoints.text = character.AttributePoints.ToString();
         }
 
         if(nextScreenButton != null)
         {
             bool characterName = character.CharacterName != "";
-            bool attributePoints = character.attributePoints == 0;
+            bool attributePoints = character.AttributePoints == 0;
             nextScreenButton.interactable = characterName && attributePoints;
         }
     }

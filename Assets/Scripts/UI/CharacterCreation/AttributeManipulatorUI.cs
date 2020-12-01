@@ -49,11 +49,11 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void Increase()
     {
-        if(stat != null && character != null && character.attributePoints > 0)
+        if(stat != null && character != null && character.AttributePoints > 0)
         {
             if(stat.Increase(1))
             {
-                character.attributePoints--;
+                character.AttributePoints -= 1;
             }
         }
     }
@@ -64,7 +64,7 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
         {
             if (stat.Decrease(1))
             {
-                character.attributePoints++;
+                character.AttributePoints += 1;
             }
         }
     }
