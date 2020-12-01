@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Characters/Attribute Element", order = 8)]
-public class AttributeElement : Element
+[CreateAssetMenu(menuName = "Characters/Skill Element", order = 9)]
+public class SkillElement : Element
 {
     public string description;
 }
