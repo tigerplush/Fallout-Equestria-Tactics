@@ -49,4 +49,9 @@ public class CharacterCreationUI : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void Next()
+    {
+        SceneManager.LoadScene("SkillSelectionMenu");
+    }
 }
