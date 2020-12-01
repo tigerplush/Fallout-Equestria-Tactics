@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -8,6 +9,7 @@ using TMPro;
 public class CharacterCreationUI : MonoBehaviour
 {
     public TextMeshProUGUI attributePoints;
+    public Button nextScreenButton;
 
     public CharacterObject character;
 
@@ -33,6 +35,13 @@ public class CharacterCreationUI : MonoBehaviour
         if(attributePoints != null)
         {
             attributePoints.text = character.attributePoints.ToString();
+        }
+
+        if(nextScreenButton != null)
+        {
+            bool characterName = character.CharacterName != "";
+            bool attributePoints = character.attributePoints == 0;
+            nextScreenButton.interactable = characterName && attributePoints;
         }
     }
 

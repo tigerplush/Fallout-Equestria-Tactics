@@ -8,6 +8,21 @@ public class CharacterObject : ScriptableObject
     public RaceElement Race;
 
     [SerializeField]
+    private string m_CharacterName;
+    public string CharacterName
+    {
+        get
+        {
+            return m_CharacterName;
+        }
+        set
+        {
+            m_CharacterName = value;
+            StatsChanged?.Invoke();
+        }
+    }
+
+    [SerializeField]
     private int m_AttributePoints;
     public int attributePoints
     {

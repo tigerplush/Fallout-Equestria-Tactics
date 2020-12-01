@@ -17,17 +17,22 @@ public class RaceDropdown : MonoBehaviour
         if (dropdown != null)
         {
             List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
-            foreach (RaceElement race in selectableRaces)
+            int selection = -1;
+
+            for(int i = 0; i < selectableRaces.Length; i++)
             {
+                RaceElement race = selectableRaces[i];
                 TMP_Dropdown.OptionData optionData = new TMP_Dropdown.OptionData(race.name);
                 options.Add(optionData);
+
+                if (character != null && character.Race != null && character.Race == race)
+                {
+                    selection = i;
+                }
             }
+
             dropdown.AddOptions(options);
-            dropdown.RefreshShownValue();
-            if (selectableRaces.Length > 0)
-            {
-                dropdown.onValueChanged.Invoke(0);
-            }
+            dropdown.value = selection;
         }
     }
 
