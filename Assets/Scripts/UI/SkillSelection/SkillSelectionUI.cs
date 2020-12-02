@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SkillSelectionUI : MonoBehaviour
 {
-    public IntAttributeObject test;
-
     private void Start()
     {
-        Debug.Log(test.Value);
     }
 
     public void Back()
