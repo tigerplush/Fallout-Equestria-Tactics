@@ -17,8 +17,8 @@ public class AttributeIndexDrawer : PropertyDrawer
         if(GUILayout.Button("Create Attributes"))
         {
             AttributeIndex index = attributeIndex.targetObject as AttributeIndex;
-            index.CreateAttributes();
-            foreach(IntAttributeObject attribute in index.indexValues)
+            IntAttributeObject[] createdValues = index.CreateAttributes();
+            foreach(IntAttributeObject attribute in createdValues)
             {
                 AssetDatabase.AddObjectToAsset(attribute, attribute.parent);
             }

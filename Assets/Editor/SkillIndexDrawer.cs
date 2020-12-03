@@ -17,8 +17,8 @@ public class SkillIndexDrawer : PropertyDrawer
         if (GUILayout.Button("Create Skills"))
         {
             SkillIndex index = skillIndex.targetObject as SkillIndex;
-            index.CreateAttributes();
-            foreach (SkillObject skill in index.indexValues)
+            SkillObject[] createdValues = index.CreateAttributes();
+            foreach (SkillObject skill in createdValues)
             {
                 AssetDatabase.AddObjectToAsset(skill, skill.parent);
             }

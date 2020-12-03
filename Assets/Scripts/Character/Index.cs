@@ -10,9 +10,10 @@ public abstract class Index<TElement, TObject> : ScriptableObject where TElement
     public List<TElement> indexElements = new List<TElement>();
     public List<TObject> indexValues = new List<TObject>();
 
-    public void CreateAttributes()
+    public TObject[] CreateAttributes()
     {
         elementsToCreate.Sort();
+        List<TObject> createdValues = new List<TObject>();
         foreach (TElement element in elementsToCreate)
         {
             if (!indexElements.Contains(element))
@@ -22,9 +23,11 @@ public abstract class Index<TElement, TObject> : ScriptableObject where TElement
                 TObject value = CreateInstance<TObject>();
                 SetupIndexElement(element, value);
                 indexValues.Add(value);
+                createdValues.Add(value);
             }
         }
         elementsToCreate.Clear();
+        return createdValues.ToArray();
     }
 
     protected virtual void SetupIndexElement(TElement element, TObject value)
