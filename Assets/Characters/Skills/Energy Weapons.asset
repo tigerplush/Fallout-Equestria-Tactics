@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Energy Weapons
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: e7f0e1d0a782e1443972ae6d89263d3b, type: 2}

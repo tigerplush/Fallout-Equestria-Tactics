@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Big Bucking Guns
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: c2d62d3d803cab94d994816a18c8bd93, type: 2}

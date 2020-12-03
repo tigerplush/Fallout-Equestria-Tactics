@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Medicine
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: 4ac38e6878deb3b42b3be14cb637a911, type: 2}

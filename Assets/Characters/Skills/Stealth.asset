@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Stealth
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: 48f0d1c259278824a8e8fdea8744f1c1, type: 2}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Speech
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: 5faf1fa2fe148a946af100771d2070e4, type: 2}

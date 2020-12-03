@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Survival
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: 3eaa9064d8a0d8846bed4e7426507a53, type: 2}

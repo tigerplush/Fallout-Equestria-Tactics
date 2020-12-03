@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Repair
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: ab29e1ceb532b624a90d685bd1405497, type: 2}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Science
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: fa110ea08e4b96e42975e6006ed44d63, type: 2}

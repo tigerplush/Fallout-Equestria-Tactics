@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Explosives
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: 6c69f323056160e419061a90c53ec0ee, type: 2}

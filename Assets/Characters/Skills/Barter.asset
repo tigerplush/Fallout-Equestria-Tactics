@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Barter
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: 31adc4c4ea6f0e148aaf95739bcea7ab, type: 2}

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Guns
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: a485f6ececc9eb54c99b56def52d5986, type: 2}

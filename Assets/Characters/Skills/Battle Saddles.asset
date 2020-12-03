@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Battle Saddles
   m_EditorClassIdentifier: 
   description: 
+  defaultFormula: {fileID: 11400000, guid: 8226d97f020dc7e4cb52bcbb0e1e01e7, type: 2}
