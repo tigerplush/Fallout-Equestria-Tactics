@@ -65,7 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 7
+  m_Value: 5
   parent: {fileID: 11400000}
 --- !u!114 &-4110499046725593632
 MonoBehaviour:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 7
+  m_Value: 5
   parent: {fileID: 11400000}
 --- !u!114 &-658485085339718722
 MonoBehaviour:
@@ -167,8 +167,8 @@ MonoBehaviour:
   skills: {fileID: 1659757167390040682}
   m_Race: {fileID: 11400000, guid: b8d066b008b77044484c951fe36d9af2, type: 2}
   m_CharacterName: Blank Flank
-  m_AttributePoints: 0
-  m_SkillPoints: 0
+  m_AttributePoints: 5
+  m_SkillPoints: 10
 --- !u!114 &91573109332430877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 7
+  m_Value: 5
   parent: {fileID: 11400000}
 --- !u!114 &1659757167390040682
 MonoBehaviour:
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 1
+  m_Value: 5
   parent: {fileID: 11400000}
 --- !u!114 &5374298943931385271
 MonoBehaviour:
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 0
   maxValue: 100
-  m_Value: 7
+  m_Value: 0
   parent: {fileID: 11400000}
   formula: {fileID: 0}
 --- !u!114 &6194828821203274082
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 8
+  m_Value: 5
   parent: {fileID: 11400000}
 --- !u!114 &6355741072672771012
 MonoBehaviour:
@@ -440,5 +440,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 9
+  m_Value: 5
   parent: {fileID: 11400000}

@@ -102,7 +102,7 @@ MonoBehaviour:
   - {fileID: 2795813217719347660}
   - {fileID: -4678180223627386993}
   - {fileID: 5374667210977975282}
-  output: {fileID: 0}
+  output: {fileID: -1006742270137670718}
   character: {fileID: 0}
 --- !u!114 &2795813217719347660
 MonoBehaviour:

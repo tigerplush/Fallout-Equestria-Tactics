@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Add
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 14, y: -86}
+  position: {x: -5, y: -134}
   ports:
     keys:
     - a
@@ -68,7 +68,7 @@ MonoBehaviour:
   nodes:
   - {fileID: -3625144319943592788}
   - {fileID: 687859282959400821}
-  output: {fileID: 0}
+  output: {fileID: -3625144319943592788}
   character: {fileID: 0}
 --- !u!114 &687859282959400821
 MonoBehaviour:
