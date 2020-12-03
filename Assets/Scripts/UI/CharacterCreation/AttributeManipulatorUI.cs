@@ -4,43 +4,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
-public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class AttributeManipulatorUI : ManipulatorUI<AttributeElement>
 {
-    public TextMeshProUGUI label;
-    public TextMeshProUGUI value;
-    public TextAttribute tooltip;
-
-    public ScriptableCharacter character;
-    public AttributeElement attribute;
-    public IntAttributeObject stat;
-
-    private void OnDisable()
+    public override void Setup(ScriptableCharacter character, AttributeElement element)
     {
-        if (stat != null)
+        base.Setup(character, element);
+        if(character.attributes.Has(element))
         {
-            stat.ValueChanged -= UpdateUI;
-        }
-    }
-
-    public void Setup(ScriptableCharacter character, AttributeElement attribute)
-    {
-        this.character = character;
-        this.attribute = attribute;
-        label.text = attribute.name;
-        if(character.attributes.Has(attribute))
-        {
-            stat = character.attributes.Get(attribute);
+            stat = character.attributes.Get(element);
             UpdateUI();
             stat.ValueChanged += UpdateUI;
         }
     }
 
-    public virtual void UpdateUI()
+    public override void UpdateUI()
     {
-        value.text = character.attributes.Get(attribute).Value.ToString();
+        value.text = stat.Value.ToString();
     }
 
-    public virtual void Increase()
+    public override void Increase()
     {
         if(character != null && stat != null && character.AttributePoints > 0)
         {
@@ -51,7 +33,7 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
         }
     }
 
-    public virtual void Decrease()
+    public override void Decrease()
     {
         if (stat != null && character != null)
         {
@@ -59,22 +41,6 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
             {
                 character.AttributePoints += 1;
             }
-        }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if(tooltip != null && attribute != null)
-        {
-            tooltip.Set(attribute.description);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if(tooltip != null)
-        {
-            tooltip.Enabled = false;
         }
     }
 }

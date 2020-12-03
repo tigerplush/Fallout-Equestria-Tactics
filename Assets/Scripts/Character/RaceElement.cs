@@ -5,5 +5,4 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Characters/Race Element", order = 8)]
 public class RaceElement : Element
 {
-    public string description;
 }

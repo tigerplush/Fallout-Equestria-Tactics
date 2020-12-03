@@ -3,13 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class SkillManipulatorUI : AttributeManipulatorUI
+public class SkillManipulatorUI : ManipulatorUI<SkillElement>
 {
     public TextMeshProUGUI rawValue;
 
+    public override void Setup(ScriptableCharacter character, SkillElement element)
+    {
+        base.Setup(character, element);
+        if (character.skills.Has(element))
+        {
+            stat = character.skills.Get(element);
+            UpdateUI();
+            stat.ValueChanged += UpdateUI;
+        }
+    }
+
     public override void UpdateUI()
     {
-        value.text = stat.Value.ToString();
+        value.text = character.skills.Value(element).ToString();
+        //value.text = stat.Value.ToString();
         rawValue.text = stat.RawValue.ToString();
     }
 

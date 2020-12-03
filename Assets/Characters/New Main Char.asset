@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6730590355646376306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Science
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &-6535982677272378042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Energy Weapons
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &-6300905321351698517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Unarmed
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
 --- !u!114 &-5799061468740512459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14,8 +65,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 5
+  m_Value: 7
   parent: {fileID: 11400000}
+--- !u!114 &-4110499046725593632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Survival
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &-2864360255228897254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Explosives
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &-2646498632176747502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Stealth
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
 --- !u!114 &-1979212384396611836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,8 +132,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 5
+  m_Value: 7
   parent: {fileID: 11400000}
+--- !u!114 &-658485085339718722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Repair
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,9 +166,26 @@ MonoBehaviour:
   attributes: {fileID: 2868194135533184915}
   skills: {fileID: 1659757167390040682}
   m_Race: {fileID: 11400000, guid: b8d066b008b77044484c951fe36d9af2, type: 2}
-  m_CharacterName: 
-  m_AttributePoints: 5
-  m_SkillPoints: 5
+  m_CharacterName: Blank Flank
+  m_AttributePoints: 0
+  m_SkillPoints: 0
+--- !u!114 &91573109332430877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Speech
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
 --- !u!114 &899066094447341236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 5
+  m_Value: 7
   parent: {fileID: 11400000}
 --- !u!114 &1659757167390040682
 MonoBehaviour:
@@ -80,8 +216,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 11400000}
   elementsToCreate: []
-  indexElements: []
-  indexValues: []
+  indexElements:
+  - {fileID: 11400000, guid: 54c2b79c6ef4db7489a28791eef1cd28, type: 2}
+  - {fileID: 11400000, guid: e3270e4cc74e4a7438dd4545eab18bec, type: 2}
+  - {fileID: 11400000, guid: 64e2291b5797f3e428addec4fddb3aaf, type: 2}
+  - {fileID: 11400000, guid: 63cc6700ffcb4ea4594a9ed42073f85c, type: 2}
+  - {fileID: 11400000, guid: 4fbeb912d11b12b44a95fad8e4e45de7, type: 2}
+  - {fileID: 11400000, guid: 1b02e3d87716663429971d7eaa18ec41, type: 2}
+  - {fileID: 11400000, guid: 3136ed42ef00e504483ece3f45d10105, type: 2}
+  - {fileID: 11400000, guid: 4335ece09ef0fe143a50a5847c2e2c7f, type: 2}
+  - {fileID: 11400000, guid: 5e2a54ed4b174fb4ca0bae7dc34ed2ca, type: 2}
+  - {fileID: 11400000, guid: 21c4f536839cde449b3a4be4ba73cbff, type: 2}
+  - {fileID: 11400000, guid: 83e911d1cd248f949bfd40000d56aa65, type: 2}
+  - {fileID: 11400000, guid: d1b251f8b7a6b834cb864639e7809c99, type: 2}
+  - {fileID: 11400000, guid: b73c286fa9a23ad4bafe8ccfec9b33a4, type: 2}
+  - {fileID: 11400000, guid: 7c954ea3b83b3d640b1ff78ca0ff90b6, type: 2}
+  indexValues:
+  - {fileID: 6016050172633336034}
+  - {fileID: 5374298943931385271}
+  - {fileID: 4743437680416694154}
+  - {fileID: -6535982677272378042}
+  - {fileID: -2864360255228897254}
+  - {fileID: 3185918702982909590}
+  - {fileID: 3175481550464756275}
+  - {fileID: 3224984016599061006}
+  - {fileID: -658485085339718722}
+  - {fileID: -6730590355646376306}
+  - {fileID: 91573109332430877}
+  - {fileID: -2646498632176747502}
+  - {fileID: -4110499046725593632}
+  - {fileID: -6300905321351698517}
 --- !u!114 &2868194135533184915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,6 +276,74 @@ MonoBehaviour:
   - {fileID: 6355741072672771012}
   - {fileID: 6194828821203274082}
   - {fileID: 899066094447341236}
+--- !u!114 &3175481550464756275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Medicine
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &3185918702982909590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Guns
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &3224984016599061006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Melee
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &4743437680416694154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Big Bucking Guns
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
 --- !u!114 &5177455344306529518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,8 +374,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 5
+  m_Value: 1
   parent: {fileID: 11400000}
+--- !u!114 &5374298943931385271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Battle Saddles
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 0
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
+--- !u!114 &6016050172633336034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee5a5d9dd0543e94d89ca4696e239179, type: 3}
+  m_Name: Barter
+  m_EditorClassIdentifier: 
+  minValue: 0
+  maxValue: 100
+  m_Value: 7
+  parent: {fileID: 11400000}
+  formula: {fileID: 0}
 --- !u!114 &6194828821203274082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 5
+  m_Value: 8
   parent: {fileID: 11400000}
 --- !u!114 &6355741072672771012
 MonoBehaviour:
@@ -174,5 +440,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minValue: 1
   maxValue: 10
-  m_Value: 5
+  m_Value: 9
   parent: {fileID: 11400000}

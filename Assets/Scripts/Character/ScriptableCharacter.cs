@@ -62,7 +62,7 @@ public class ScriptableCharacter : ScriptableObject
         }
         set
         {
-            m_AttributePoints = value;
+            m_SkillPoints = value;
             StatsChanged?.Invoke();
         }
     }
@@ -96,5 +96,15 @@ public class ScriptableCharacter : ScriptableObject
     public IntAttributeObject AttributeValue(int index)
     {
         return attributes.indexValues[index];
+    }
+
+    public float Skill(SkillElement skill)
+    {
+        return float.NaN;
+    }
+
+    public bool Has(SkillElement skill)
+    {
+        return skills.Has(skill);
     }
 }

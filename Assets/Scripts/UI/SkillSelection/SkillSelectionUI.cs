@@ -9,7 +9,7 @@ public class SkillSelectionUI : MonoBehaviour
 {
     public TextMeshProUGUI skillPoints;
 
-    public CharacterObject character;
+    public ScriptableCharacter character;
 
     private void OnEnable()
     {

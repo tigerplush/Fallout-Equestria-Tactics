@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class SkillIndex : Index<SkillElement, SkillObject>
 {
-    protected override void SetupIndexElement(SkillElement element, SkillObject value)
+    public float Value(SkillElement skill)
     {
-        base.SetupIndexElement(element, value);
-        value.formula = element.defaultFormula;
+        if(Has(skill))
+        {
+            float value = 0f;
+            value += (float)Get(skill).Value;
+            value += skill.defaultFormula.Val(parent);
+            return value;
+        }
+        return float.NaN;
     }
 }

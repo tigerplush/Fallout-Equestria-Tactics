@@ -4,4 +4,5 @@ using UnityEngine;
 
 public abstract class Element : ScriptableObject
 {
+    public string description;
 }
