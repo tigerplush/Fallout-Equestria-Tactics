@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Knowledge, Wisdom and street smarts. Intelligence influences how good
     you can sciene the shit out of things.
+  priority: 5

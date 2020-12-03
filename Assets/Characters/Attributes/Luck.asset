@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Luck
   m_EditorClassIdentifier: 
   description: Lady luck may favor you - because luck influences everything a bit.
+  priority: 7

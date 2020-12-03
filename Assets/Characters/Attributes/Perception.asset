@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Perception is the ability to see, hear, taste and notice the things
     around you. Perception is important for shooting guns.
+  priority: 2

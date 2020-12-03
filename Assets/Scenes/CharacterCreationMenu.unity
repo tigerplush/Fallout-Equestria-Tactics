@@ -1655,7 +1655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1006705605}
-  character: {fileID: 11400000, guid: 89e978796b8186342a269e0b2da6c129, type: 2}
+  character: {fileID: 11400000, guid: 9af012d97de868e49a60b08080ade798, type: 2}
 --- !u!1 &1008830379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributeManipulatorPrefab: {fileID: 49503451156000046, guid: 4b53acbd257cc844d8c20b7e6a624e55,
     type: 3}
-  character: {fileID: 11400000, guid: 89e978796b8186342a269e0b2da6c129, type: 2}
+  character: {fileID: 11400000, guid: 9af012d97de868e49a60b08080ade798, type: 2}
 --- !u!1 &1389884693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2453,7 +2453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attributePoints: {fileID: 577704707}
   nextScreenButton: {fileID: 1008830381}
-  character: {fileID: 11400000, guid: 89e978796b8186342a269e0b2da6c129, type: 2}
+  character: {fileID: 11400000, guid: 9af012d97de868e49a60b08080ade798, type: 2}
 --- !u!1 &1590176866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,7 +2831,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c04536742108974c821332a7f87a02e, type: 2}
   - {fileID: 11400000, guid: d0cdef366671e4b42ab83591617346bc, type: 2}
   tooltip: {fileID: 11400000, guid: dc417e8f8ff69c844be70f2f2c7c1a9a, type: 2}
-  character: {fileID: 11400000, guid: 89e978796b8186342a269e0b2da6c129, type: 2}
+  character: {fileID: 11400000, guid: 9af012d97de868e49a60b08080ade798, type: 2}
 --- !u!114 &1846896782
 MonoBehaviour:
   m_ObjectHideFlags: 0

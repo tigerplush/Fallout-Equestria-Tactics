@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Raw physical strength. It determines how much stuff you can carry
     and how hard you can hit.
+  priority: 1

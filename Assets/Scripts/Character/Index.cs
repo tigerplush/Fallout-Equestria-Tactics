@@ -12,6 +12,7 @@ public abstract class Index<TElement, TObject> : ScriptableObject where TElement
 
     public void CreateAttributes()
     {
+        elementsToCreate.Sort();
         foreach (TElement element in elementsToCreate)
         {
             if (!indexElements.Contains(element))
