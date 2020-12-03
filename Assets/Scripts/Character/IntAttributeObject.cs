@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Characters/New Int Attribute")]
 public class IntAttributeObject : AttributeObject<int>
 {
+    public ScriptableCharacter parent;
     public override int Value
     {
         get
