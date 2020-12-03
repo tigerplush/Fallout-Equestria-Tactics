@@ -10,6 +10,7 @@ public class SkillIndexDrawer : PropertyDrawer
     {
         SerializedObject skillIndex = new SerializedObject(property.objectReferenceValue);
         SerializedProperty elementsToCreate = skillIndex.FindProperty("elementsToCreate");
+        SerializedProperty indexElements = skillIndex.FindProperty("indexElements");
         SerializedProperty skillValues = skillIndex.FindProperty("indexValues");
 
         EditorGUI.BeginProperty(position, label, property);
@@ -27,7 +28,8 @@ public class SkillIndexDrawer : PropertyDrawer
 
         for (int i = 0; i < skillValues.arraySize; i++)
         {
-            EditorGUILayout.PropertyField(skillValues.GetArrayElementAtIndex(i));
+            SkillElement element = indexElements.GetArrayElementAtIndex(i).objectReferenceValue as SkillElement;
+            EditorGUILayout.PropertyField(skillValues.GetArrayElementAtIndex(i), new GUIContent(element.name));
         }
         EditorGUI.EndProperty();
 
