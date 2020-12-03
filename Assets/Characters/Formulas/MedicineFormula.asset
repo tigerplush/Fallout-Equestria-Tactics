@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3160591209531298326
+--- !u!114 &-4038466067465108071
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834fdd580e63390428b9b0a8bc1094f3, type: 3}
-  m_Name: Reference
+  m_Script: {fileID: 11500000, guid: 4d3b8cab33f9ea5478583b14b0d44eec, type: 3}
+  m_Name: Attribute
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -527, y: -26}
+  position: {x: -530, y: -52}
   ports:
     keys:
     - value
     values:
     - _fieldName: value
-      _node: {fileID: -3160591209531298326}
+      _node: {fileID: -4038466067465108071}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -30,7 +30,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  attribute: {fileID: 11400000, guid: 205d98347f84b7c4f801b097dd43a89f, type: 2}
+  attribute: {fileID: 11400000, guid: d47964dfa7bf7af4a8f4caabc09b6206, type: 2}
   value: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -48,41 +48,10 @@ MonoBehaviour:
   - {fileID: 2184094297103801897}
   - {fileID: 2222343923585805942}
   - {fileID: 7195709661858201744}
-  - {fileID: -3160591209531298326}
-  - {fileID: 36256681356067386}
+  - {fileID: -4038466067465108071}
+  - {fileID: 3246108821109977642}
   output: {fileID: 2184094297103801897}
---- !u!114 &36256681356067386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834fdd580e63390428b9b0a8bc1094f3, type: 3}
-  m_Name: Reference
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -533, y: 80}
-  ports:
-    keys:
-    - value
-    values:
-    - _fieldName: value
-      _node: {fileID: 36256681356067386}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: b
-        node: {fileID: 7195709661858201744}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  attribute: {fileID: 11400000, guid: 3e08c5b092ccd12468466c518470682e, type: 2}
-  value: 0
+  character: {fileID: 0}
 --- !u!114 &2184094297103801897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +161,38 @@ MonoBehaviour:
   a: 0
   b: 2
   product: 0
+--- !u!114 &3246108821109977642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3b8cab33f9ea5478583b14b0d44eec, type: 3}
+  m_Name: Attribute
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -531, y: 74}
+  ports:
+    keys:
+    - value
+    values:
+    - _fieldName: value
+      _node: {fileID: 3246108821109977642}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: b
+        node: {fileID: 7195709661858201744}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  attribute: {fileID: 11400000, guid: 19ec807948ca39542982d69792146bd5, type: 2}
+  value: 0
 --- !u!114 &7195709661858201744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +219,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: value
-        node: {fileID: -3160591209531298326}
+        node: {fileID: -4038466067465108071}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -230,7 +231,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: value
-        node: {fileID: 36256681356067386}
+        node: {fileID: 3246108821109977642}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

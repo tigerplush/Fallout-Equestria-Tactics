@@ -1,37 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8062483562292695091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834fdd580e63390428b9b0a8bc1094f3, type: 3}
-  m_Name: Reference
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -263, y: -16}
-  ports:
-    keys:
-    - value
-    values:
-    - _fieldName: value
-      _node: {fileID: -8062483562292695091}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: b
-        node: {fileID: -3625144319943592788}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  attribute: {fileID: 11400000, guid: 7eaa9a2477cfd3d419b1daab1957d6ac, type: 2}
-  value: 0
 --- !u!114 &-3625144319943592788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,7 +35,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: value
-        node: {fileID: -8062483562292695091}
+        node: {fileID: 687859282959400821}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -99,5 +67,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: -3625144319943592788}
-  - {fileID: -8062483562292695091}
+  - {fileID: 687859282959400821}
   output: {fileID: 0}
+  character: {fileID: 0}
+--- !u!114 &687859282959400821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3b8cab33f9ea5478583b14b0d44eec, type: 3}
+  m_Name: Attribute
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -303, y: -108}
+  ports:
+    keys:
+    - value
+    values:
+    - _fieldName: value
+      _node: {fileID: 687859282959400821}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: b
+        node: {fileID: -3625144319943592788}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  attribute: {fileID: 11400000, guid: f0d21efa8f551944cbaffd9ece484d9a, type: 2}
+  value: 0

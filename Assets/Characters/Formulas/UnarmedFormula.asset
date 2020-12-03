@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8037272586153651618
+--- !u!114 &-5043711362516760723
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834fdd580e63390428b9b0a8bc1094f3, type: 3}
-  m_Name: Reference
+  m_Script: {fileID: 11500000, guid: 4d3b8cab33f9ea5478583b14b0d44eec, type: 3}
+  m_Name: Attribute
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -661, y: -219}
+  position: {x: -667, y: -218}
   ports:
     keys:
     - value
     values:
     - _fieldName: value
-      _node: {fileID: -8037272586153651618}
+      _node: {fileID: -5043711362516760723}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -30,7 +30,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  attribute: {fileID: 11400000, guid: 787e083d1aa76934aae90b049aa89b04, type: 2}
+  attribute: {fileID: 11400000, guid: 065eeeff1dd5c574bb7481c01b0cb14b, type: 2}
   value: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -47,10 +47,11 @@ MonoBehaviour:
   nodes:
   - {fileID: 5730310133419081113}
   - {fileID: 7170232502722009171}
-  - {fileID: 3877732543741318032}
-  - {fileID: -8037272586153651618}
   - {fileID: 897876779723603550}
+  - {fileID: -5043711362516760723}
+  - {fileID: 949631586267557738}
   output: {fileID: 897876779723603550}
+  character: {fileID: 0}
 --- !u!114 &897876779723603550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +105,7 @@ MonoBehaviour:
   a: 65
   b: 0
   sum: 0
---- !u!114 &3877732543741318032
+--- !u!114 &949631586267557738
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -113,17 +114,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834fdd580e63390428b9b0a8bc1094f3, type: 3}
-  m_Name: Reference
+  m_Script: {fileID: 11500000, guid: 4d3b8cab33f9ea5478583b14b0d44eec, type: 3}
+  m_Name: Attribute
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -664, y: -117}
+  position: {x: -664, y: -102}
   ports:
     keys:
     - value
     values:
     - _fieldName: value
-      _node: {fileID: 3877732543741318032}
+      _node: {fileID: 949631586267557738}
       _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -134,7 +135,7 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 0
-  attribute: {fileID: 11400000, guid: 7fac7898555771944825abb2f11158e2, type: 2}
+  attribute: {fileID: 11400000, guid: 9ca75d0feda39cb4faf039ae26251bbc, type: 2}
   value: 0
 --- !u!114 &5730310133419081113
 MonoBehaviour:
@@ -218,7 +219,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: value
-        node: {fileID: -8037272586153651618}
+        node: {fileID: -5043711362516760723}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -230,7 +231,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: value
-        node: {fileID: 3877732543741318032}
+        node: {fileID: 949631586267557738}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

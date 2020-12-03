@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5592851895507759302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3b8cab33f9ea5478583b14b0d44eec, type: 3}
+  m_Name: Attribute
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -422.66833, y: -426.36578}
+  ports:
+    keys:
+    - value
+    values:
+    - _fieldName: value
+      _node: {fileID: -5592851895507759302}
+      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: b
+        node: {fileID: -4432133224842256375}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  attribute: {fileID: 11400000, guid: 9ca75d0feda39cb4faf039ae26251bbc, type: 2}
+  value: 0
 --- !u!114 &-4432133224842256375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +67,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: value
-        node: {fileID: 6235020478544311630}
+        node: {fileID: -5592851895507759302}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -66,38 +98,7 @@ MonoBehaviour:
   m_Name: GunsFormula
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 6235020478544311630}
   - {fileID: -4432133224842256375}
+  - {fileID: -5592851895507759302}
   output: {fileID: -4432133224842256375}
---- !u!114 &6235020478544311630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834fdd580e63390428b9b0a8bc1094f3, type: 3}
-  m_Name: Reference
-  m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -451.04858, y: -428.76093}
-  ports:
-    keys:
-    - value
-    values:
-    - _fieldName: value
-      _node: {fileID: 6235020478544311630}
-      _typeQualifiedName: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: b
-        node: {fileID: -4432133224842256375}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  attribute: {fileID: 11400000, guid: 7fac7898555771944825abb2f11158e2, type: 2}
-  value: 0
+  character: {fileID: 0}

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-public class ReferenceNode : MathNode
+public class AttributeNode : MathNode
 {
-    public IntAttributeObject attribute;
+    public AttributeElement attribute;
 
     [Output] public float value;
 
@@ -18,9 +18,10 @@ public class ReferenceNode : MathNode
     // Return the correct value of an output port when requested
     public override object GetValue(NodePort port)
     {
-        if(attribute != null)
+        Formula formula = graph as Formula;
+        if (attribute != null && formula != null && formula.character != null && formula.character.attributes.Has(attribute))
         {
-            return (float)attribute.Value;
+            return (float)formula.character.attributes.Get(attribute).Value;
         }
         return null;
     }
