@@ -10,7 +10,14 @@ public abstract class AttributeObject<T> : ScriptableObject
     [SerializeField]
     protected T m_Value;
 
-    public abstract T Value { get; set; }
+    public abstract T Value { get; protected set; }
+    public T RawValue
+    {
+        get
+        {
+            return m_Value;
+        }
+    }
 
     public delegate void ValueChangedHandler();
     public ValueChangedHandler ValueChanged;

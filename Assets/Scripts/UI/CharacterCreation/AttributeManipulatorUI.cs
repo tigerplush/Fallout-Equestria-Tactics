@@ -30,7 +30,7 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
         }
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         if (stat != null)
         {
@@ -42,12 +42,12 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
         }
     }
 
-    public void UpdateUI()
+    public virtual void UpdateUI()
     {
         value.text = stat.Value.ToString();
     }
 
-    public void Increase()
+    public virtual void Increase()
     {
         if(stat != null && character != null && character.AttributePoints > 0)
         {
@@ -58,7 +58,7 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
         }
     }
 
-    public void Decrease()
+    public virtual void Decrease()
     {
         if (stat != null && character != null)
         {
@@ -73,7 +73,7 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
     {
         if(tooltip != null && attribute != null)
         {
-            tooltip.Value = attribute.description;
+            tooltip.Set(attribute.description);
         }
     }
 

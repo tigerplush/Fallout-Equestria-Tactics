@@ -37,6 +37,21 @@ public class CharacterObject : ScriptableObject
         }
     }
 
+    [SerializeField]
+    private int m_SkillPoints;
+    public int SkillPoints
+    {
+        get
+        {
+            return m_SkillPoints;
+        }
+        set
+        {
+            m_SkillPoints = value;
+            StatsChanged?.Invoke();
+        }
+    }
+
     public IntAttributeObject Strength;
     public IntAttributeObject Perception;
     public IntAttributeObject Endurance;
@@ -47,4 +62,9 @@ public class CharacterObject : ScriptableObject
 
     public delegate void StatsChangedHandler();
     public StatsChangedHandler StatsChanged;
+
+    public void LevelUp()
+    {
+        m_SkillPoints += 10 + (Intelligence.Value / 2);
+    }
 }

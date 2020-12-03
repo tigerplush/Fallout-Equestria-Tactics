@@ -43,7 +43,7 @@ public class RaceDropdown : MonoBehaviour
 
     public void Enter(int childElement)
     {
-        tooltip.Value = selectableRaces[childElement - 1].description;
+        tooltip.Set(selectableRaces[childElement - 1].description);
     }
 
     public void Exit()

@@ -27,12 +27,17 @@ public class TextAttribute : AttributeObject<string>
         {
             return m_Value;
         }
-        set
+        protected set
         {
             m_Enabled = true;
             m_Value = value;
             ValueChanged?.Invoke();
         }
+    }
+
+    public void Set(string value)
+    {
+        Value = value;
     }
 
     public override bool Decrease(string decrement)

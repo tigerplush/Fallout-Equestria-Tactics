@@ -11,7 +11,7 @@ public class IntAttributeObject : AttributeObject<int>
         {
             return m_Value;
         }
-        set
+        protected set
         {
             m_Value = Mathf.Clamp(value, minValue, maxValue);
             ValueChanged?.Invoke();
@@ -27,9 +27,10 @@ public class IntAttributeObject : AttributeObject<int>
 
     public override bool Increase(int increment)
     {
-        if (Value + increment <= maxValue)
+        if (m_Value + increment <= maxValue)
         {
-            Value += increment;
+            m_Value += increment;
+            ValueChanged?.Invoke();
             return true;
         }
         return false;
@@ -37,9 +38,10 @@ public class IntAttributeObject : AttributeObject<int>
 
     public override bool Decrease(int decrement)
     {
-        if(Value - decrement >= minValue)
+        if(m_Value - decrement >= minValue)
         {
-            Value -= decrement;
+            m_Value -= decrement;
+            ValueChanged?.Invoke();
             return true;
         }
         return false;
