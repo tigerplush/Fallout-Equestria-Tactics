@@ -10,7 +10,7 @@ public class RaceDropdown : MonoBehaviour
     public RaceElement[] selectableRaces;
     public TextAttribute tooltip;
 
-    public CharacterObject character;
+    public ScriptableCharacter character;
 
     private void Start()
     {

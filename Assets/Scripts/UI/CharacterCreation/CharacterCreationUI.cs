@@ -11,7 +11,7 @@ public class CharacterCreationUI : MonoBehaviour
     public TextMeshProUGUI attributePoints;
     public Button nextScreenButton;
 
-    public CharacterObject character;
+    public ScriptableCharacter character;
 
     private void OnEnable()
     {

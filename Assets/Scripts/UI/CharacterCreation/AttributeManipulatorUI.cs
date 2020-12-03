@@ -10,17 +10,9 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
     public TextMeshProUGUI value;
     public TextAttribute tooltip;
 
-    public CharacterObject character;
-    public IntAttributeObject stat;
+    public ScriptableCharacter character;
     public AttributeElement attribute;
-
-    private void OnEnable()
-    {
-        if(stat != null)
-        {
-            stat.ValueChanged += UpdateUI;
-        }
-    }
+    public IntAttributeObject stat;
 
     private void OnDisable()
     {
@@ -30,26 +22,27 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
         }
     }
 
-    protected virtual void Start()
+    public void Setup(ScriptableCharacter character, AttributeElement attribute)
     {
-        if (stat != null)
+        this.character = character;
+        this.attribute = attribute;
+        label.text = attribute.name;
+        if(character.attributes.Has(attribute))
         {
+            stat = character.attributes.Get(attribute);
             UpdateUI();
-        }
-        if(attribute != null)
-        {
-            label.text = attribute.name;
+            stat.ValueChanged += UpdateUI;
         }
     }
 
     public virtual void UpdateUI()
     {
-        value.text = stat.Value.ToString();
+        value.text = character.attributes.Get(attribute).Value.ToString();
     }
 
     public virtual void Increase()
     {
-        if(stat != null && character != null && character.AttributePoints > 0)
+        if(character != null && stat != null && character.AttributePoints > 0)
         {
             if(stat.Increase(1))
             {

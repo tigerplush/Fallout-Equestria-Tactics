@@ -6,7 +6,7 @@ using TMPro;
 public class NameInputFieldUI : MonoBehaviour
 {
     public TMP_InputField inputField;
-    public CharacterObject character;
+    public ScriptableCharacter character;
 
     public void OnEnable()
     {

@@ -7,11 +7,6 @@ public class SkillManipulatorUI : AttributeManipulatorUI
 {
     public TextMeshProUGUI rawValue;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
-
     public override void UpdateUI()
     {
         value.text = stat.Value.ToString();
