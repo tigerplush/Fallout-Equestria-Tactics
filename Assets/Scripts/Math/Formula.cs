@@ -16,11 +16,14 @@ public class Formula : NodeGraph {
     {
         get
         {
-            foreach (NodePort port in output.Ports)
+            if(output != null)
             {
-                object obj = output.GetValue(port);
-                float value = (float)obj;
-                return value;
+                foreach (NodePort port in output.Ports)
+                {
+                    object obj = output.GetValue(port);
+                    float value = (float)obj;
+                    return value;
+                }
             }
             return float.NaN;
         }
