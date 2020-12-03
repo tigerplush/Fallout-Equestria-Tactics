@@ -20,12 +20,17 @@ public abstract class Index<TElement, TObject> : ScriptableObject where TElement
                 indexElements.Add(element);
 
                 TObject value = CreateInstance<TObject>();
-                value.name = element.name;
-                value.parent = parent;
+                SetupIndexElement(element, value);
                 indexValues.Add(value);
             }
         }
         elementsToCreate.Clear();
+    }
+
+    protected virtual void SetupIndexElement(TElement element, TObject value)
+    {
+        value.name = element.name;
+        value.parent = parent;
     }
 
     public bool Has(TElement element)

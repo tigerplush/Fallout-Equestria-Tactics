@@ -6,4 +6,5 @@ using UnityEngine;
 public class SkillElement : Element
 {
     public string description;
+    public Formula defaultFormula;
 }
