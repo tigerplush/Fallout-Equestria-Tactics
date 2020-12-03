@@ -60,7 +60,7 @@ public class AttributeManipulatorUI : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void Decrease()
     {
-        if (stat != null)
+        if (stat != null && character != null)
         {
             if (stat.Decrease(1))
             {
