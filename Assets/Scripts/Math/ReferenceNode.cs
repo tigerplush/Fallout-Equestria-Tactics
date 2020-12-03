@@ -18,6 +18,10 @@ public class ReferenceNode : MathNode
     // Return the correct value of an output port when requested
     public override object GetValue(NodePort port)
     {
-        return (float)attribute.Value;
+        if(attribute != null)
+        {
+            return (float)attribute.Value;
+        }
+        return null;
     }
 }
