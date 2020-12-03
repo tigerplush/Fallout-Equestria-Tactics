@@ -20,8 +20,9 @@ public class SkillManipulatorUI : ManipulatorUI<SkillElement>
 
     public override void UpdateUI()
     {
-        value.text = character.skills.Value(element).ToString();
-        //value.text = stat.Value.ToString();
+        float skillValue = character.skills.Value(element);
+        int roundedValue = Mathf.FloorToInt(skillValue);
+        value.text = $"({roundedValue.ToString()})";
         rawValue.text = stat.RawValue.ToString();
     }
 
