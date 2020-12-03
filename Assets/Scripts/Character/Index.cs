@@ -5,18 +5,18 @@ using UnityEngine;
 public abstract class Index<TElement, TObject> : ScriptableObject where TElement : Element where TObject : IntAttributeObject
 {
     public ScriptableCharacter parent;
-    public List<TElement> indexElements = new List<TElement>();
+    public List<TElement> elementsToCreate = new List<TElement>();
 
-    public List<TElement> index = new List<TElement>();
+    public List<TElement> indexElements = new List<TElement>();
     public List<TObject> indexValues = new List<TObject>();
 
     public void CreateAttributes()
     {
-        foreach (TElement element in indexElements)
+        foreach (TElement element in elementsToCreate)
         {
-            if (!index.Contains(element))
+            if (!indexElements.Contains(element))
             {
-                index.Add(element);
+                indexElements.Add(element);
 
                 TObject value = CreateInstance<TObject>();
                 value.name = element.name;
@@ -24,17 +24,17 @@ public abstract class Index<TElement, TObject> : ScriptableObject where TElement
                 indexValues.Add(value);
             }
         }
-        indexElements.Clear();
+        elementsToCreate.Clear();
     }
 
     public bool Has(TElement element)
     {
-        return index.Contains(element);
+        return indexElements.Contains(element);
     }
 
     public TObject Get(TElement element)
     {
-        int i = index.IndexOf(element);
+        int i = indexElements.IndexOf(element);
         return indexValues[i];
     }
 }

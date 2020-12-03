@@ -9,7 +9,7 @@ public class AttributeIndexDrawer : PropertyDrawer
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         SerializedObject attributeIndex = new SerializedObject(property.objectReferenceValue);
-        SerializedProperty attributeElements = attributeIndex.FindProperty("indexElements");
+        SerializedProperty attributeElements = attributeIndex.FindProperty("elementsToCreate");
         SerializedProperty attributeValues = attributeIndex.FindProperty("indexValues");
 
         EditorGUI.BeginProperty(position, label, property);
