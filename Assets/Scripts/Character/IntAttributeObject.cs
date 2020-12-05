@@ -12,7 +12,7 @@ public class IntAttributeObject : AttributeObject<int>
         {
             return m_Value;
         }
-        protected set
+        set
         {
             m_Value = Mathf.Clamp(value, minValue, maxValue);
             ValueChanged?.Invoke();

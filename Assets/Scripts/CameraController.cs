@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class CameraController : MonoBehaviour, InputMaster.ICameraActions
 {
     public static CameraController instance = null;
+    public TransformAttributeObject followTransform;
     public float scrollSpeed = 5f;
 
     private Transform cameraFollow;
@@ -31,11 +32,19 @@ public class CameraController : MonoBehaviour, InputMaster.ICameraActions
     private void OnEnable()
     {
         controls.Enable();
+        if(followTransform != null)
+        {
+            followTransform.ValueChanged += Follow;
+        }
     }
 
     private void OnDisable()
     {
         controls.Disable();
+        if (followTransform != null)
+        {
+            followTransform.ValueChanged -= Follow;
+        }
     }
 
     private void LateUpdate()
@@ -48,6 +57,11 @@ public class CameraController : MonoBehaviour, InputMaster.ICameraActions
         {
             transform.position += movement;
         }
+    }
+
+    public void Follow()
+    {
+        cameraFollow = followTransform.Value;
     }
 
     public void Follow(Transform transform)

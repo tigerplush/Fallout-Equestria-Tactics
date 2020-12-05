@@ -10,7 +10,7 @@ public abstract class AttributeObject<T> : ScriptableObject
     [SerializeField]
     protected T m_Value;
 
-    public abstract T Value { get; protected set; }
+    public abstract T Value { get; set; }
     public T RawValue
     {
         get

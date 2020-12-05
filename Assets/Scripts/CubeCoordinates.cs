@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Contains data and algorhitms for hexagonal cube coordinates
 /// </summary>
+[System.Serializable]
 public class CubeCoordinates : IEquatable<CubeCoordinates>
 {
     public static CubeCoordinates UpRight   = new CubeCoordinates(1f, 0f, -1f);

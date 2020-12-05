@@ -27,7 +27,7 @@ public class TextAttribute : AttributeObject<string>
         {
             return m_Value;
         }
-        protected set
+        set
         {
             m_Enabled = true;
             m_Value = value;
